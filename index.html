@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>이상진 · 백엔드·AI 개발자 포트폴리오</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16181d; --body:#373b44; --sub:#697084; --faint:#9aa0b0;
+    --line:#e8eaf0; --soft:#f7f8fb; --card:#fff;
+    --ac:#3b5bdb; --ac2:#5c7cfa; --ac-bg:#eef1fe; --ac-dk:#2b3f9e;
+    --ok:#0c8577; --warn:#c2410c;
+    --mono:'JetBrains Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;scroll-behavior:smooth;}
+  body{color:var(--body);background:#fbfbfd;font-size:16px;line-height:1.7;letter-spacing:-0.01em;}
+  img{display:block;max-width:100%;}
+  a{color:var(--ac);text-decoration:none;}
+  .wrap{max-width:920px;margin:0 auto;padding:0 24px;}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:50;background:rgba(251,251,253,.86);backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--line);}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:56px;}
+  nav .brand{font-weight:800;color:var(--ink);font-size:15px;}
+  nav .links a{color:var(--sub);font-size:13.5px;font-weight:600;margin-left:20px;}
+  nav .links a:hover{color:var(--ac);}
+
+  /* hero */
+  header.hero{padding:64px 0 40px;border-bottom:1px solid var(--line);}
+  .hero .eyebrow{display:inline-block;background:var(--ac-bg);color:var(--ac-dk);font-size:12.5px;font-weight:700;
+        padding:5px 13px;border-radius:30px;letter-spacing:0;}
+  .hero h1{font-size:42px;font-weight:800;color:var(--ink);letter-spacing:-0.035em;line-height:1.12;margin:18px 0 0;}
+  .hero h1 small{display:block;font-size:18px;font-weight:600;color:var(--ac);margin-top:8px;letter-spacing:-0.02em;}
+  .hero .lead{margin-top:18px;font-size:17px;color:var(--body);max-width:640px;line-height:1.75;}
+  .hero .meta{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px;}
+  .hero .meta a,.hero .meta span{font-size:13.5px;font-weight:600;color:var(--ink);background:#fff;border:1px solid var(--line);
+        padding:7px 14px;border-radius:9px;}
+  .hero .meta a:hover{border-color:var(--ac);color:var(--ac);}
+
+  /* sections */
+  section{padding:46px 0;border-bottom:1px solid var(--line);}
+  .sec-eyebrow{font-size:12.5px;font-weight:800;color:var(--ac);letter-spacing:0.14em;text-transform:uppercase;}
+  h2.sec-title{font-size:26px;font-weight:800;color:var(--ink);letter-spacing:-0.025em;margin:6px 0 22px;}
+
+  /* about/skills */
+  .about p{font-size:16px;margin-bottom:12px;max-width:680px;}
+  .about p:last-child{margin-bottom:0;}
+  .skills{margin-top:8px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;}
+  .skrow{display:grid;grid-template-columns:130px 1fr;gap:16px;padding:13px 18px;border-bottom:1px solid var(--soft);align-items:baseline;}
+  .skrow:last-child{border-bottom:none;}
+  .skrow .k{font-weight:700;color:var(--ac);font-size:14px;}
+  .skrow .v{font-size:14.5px;color:var(--body);}
+  .skrow .v code{font-family:var(--mono);font-size:12.5px;background:var(--soft);padding:2px 7px;border-radius:5px;color:var(--ink);}
+
+  /* fit grid */
+  .fit{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .fit .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px;}
+  .fit .card h3{font-size:15.5px;color:var(--ink);font-weight:800;margin-bottom:6px;}
+  .fit .card h3 .n{color:var(--ac2);font-family:var(--mono);font-size:13px;margin-right:7px;}
+  .fit .card p{font-size:14px;color:var(--sub);line-height:1.6;}
+
+  /* project */
+  .project{padding:38px 0;border-bottom:1px solid var(--line);}
+  .project:last-of-type{border-bottom:none;}
+  .p-top{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;}
+  .p-num{font-family:var(--mono);font-size:14px;font-weight:600;color:var(--ac2);}
+  .p-title{font-size:24px;font-weight:800;color:var(--ink);letter-spacing:-0.025em;}
+  .p-tag{font-size:12px;font-weight:700;color:var(--ac-dk);background:var(--ac-bg);padding:3px 10px;border-radius:20px;}
+  .p-one{margin-top:10px;font-size:16px;color:var(--sub);max-width:680px;}
+  .p-meta{margin-top:16px;display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+        border:1px solid var(--line);border-radius:12px;overflow:hidden;}
+  .p-meta div{background:#fff;padding:11px 16px;}
+  .p-meta .ml{font-size:11.5px;color:var(--faint);font-weight:700;letter-spacing:0.03em;}
+  .p-meta .mv{font-size:14px;color:var(--ink);font-weight:600;margin-top:2px;}
+  .p-meta .mv code{font-family:var(--mono);font-size:12px;background:var(--soft);padding:1px 6px;border-radius:4px;}
+
+  /* gallery */
+  .gallery{margin:20px 0;display:flex;gap:12px;flex-wrap:wrap;}
+  .gallery figure{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--soft);flex:1 1 0;}
+  .gallery figure.phone{max-width:178px;}
+  .gallery img{width:100%;height:auto;}
+  .gallery figcaption{font-size:11.5px;color:var(--sub);padding:7px 10px;background:#fff;border-top:1px solid var(--line);line-height:1.35;}
+
+  h4.blk{font-size:14px;font-weight:800;color:var(--ink);margin:22px 0 9px;display:flex;align-items:center;gap:8px;}
+  h4.blk::before{content:"";width:3px;height:14px;background:var(--ac);border-radius:2px;}
+  .project p{font-size:15px;max-width:700px;}
+  ul.b{list-style:none;margin:6px 0;}
+  ul.b li{position:relative;padding-left:17px;margin-bottom:6px;font-size:15px;line-height:1.62;}
+  ul.b li::before{content:"";position:absolute;left:3px;top:10px;width:5px;height:5px;background:var(--ac);border-radius:50%;}
+  ul.b li b{color:var(--ink);}
+  ul.b li code,.project p code{font-family:var(--mono);font-size:12.5px;background:var(--soft);padding:1px 6px;border-radius:4px;color:var(--ink);}
+
+  /* architecture diagram */
+  .arch{display:flex;align-items:stretch;gap:0;margin:12px 0;flex-wrap:wrap;}
+  .arch .node{flex:1;min-width:140px;background:#fff;border:1px solid var(--line);border-radius:11px;padding:12px 14px;}
+  .arch .node.me{background:var(--ac-bg);border-color:#cfd6fb;}
+  .arch .node .nt{font-weight:800;font-size:13px;color:var(--ink);}
+  .arch .node.me .nt{color:var(--ac-dk);}
+  .arch .node .nd{font-size:12px;color:var(--sub);margin-top:4px;line-height:1.5;}
+  .arch .arr{display:flex;align-items:center;justify-content:center;width:30px;color:var(--faint);font-size:18px;font-weight:700;}
+
+  /* trouble */
+  .tr{border:1px solid var(--line);border-left:3px solid var(--ac);border-radius:12px;padding:15px 18px;margin:12px 0;background:#fff;}
+  .tr .tt{font-weight:800;font-size:14.5px;color:var(--ink);margin-bottom:10px;}
+  .tr dl{display:grid;grid-template-columns:58px 1fr;gap:7px 13px;font-size:14px;line-height:1.55;}
+  .tr dt{font-weight:700;font-size:11.5px;color:#fff;border-radius:5px;text-align:center;padding:3px 0;height:fit-content;}
+  .tr dt.p{background:#c0392b;} .tr dt.c{background:#b7791f;} .tr dt.s{background:var(--ac);} .tr dt.r{background:var(--ok);}
+  .tr dd b{color:var(--ink);}
+  .result{background:var(--ac-bg);border-radius:11px;padding:13px 17px;margin-top:14px;font-size:14.5px;color:var(--ac-dk);}
+  .result b{color:var(--ac-dk);}
+
+  .callout{background:#f0faf7;border:1px solid #c7ecdc;border-radius:11px;padding:14px 17px;margin:14px 0;font-size:14.5px;color:#15564b;}
+  .callout b{color:var(--ok);}
+
+  /* edu/cert */
+  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  .twocol h3{font-size:15px;font-weight:800;color:var(--ink);margin-bottom:10px;}
+  .listy{list-style:none;}
+  .listy li{font-size:14.5px;padding:6px 0;border-bottom:1px solid var(--soft);}
+  .listy li:last-child{border-bottom:none;}
+  .listy li .d{color:var(--faint);font-size:12.5px;}
+
+  footer{padding:40px 0 56px;text-align:center;}
+  footer .big{font-size:20px;font-weight:800;color:var(--ink);}
+  footer .links{margin-top:14px;}
+  footer .links a{font-weight:600;margin:0 10px;font-size:14.5px;}
+  footer .sm{margin-top:18px;font-size:12px;color:var(--faint);}
+
+  /* print / PDF */
+  @media print{
+    @page{size:A4;margin:13mm 12mm;}
+    body{background:#fff;font-size:10.5pt;}
+    nav{display:none;}
+    .wrap{max-width:none;padding:0;}
+    section,.project,header.hero{padding:14px 0;border-color:#e3e5ec;}
+    .hero h1{font-size:26pt;} .hero .lead{font-size:11pt;}
+    h2.sec-title{font-size:16pt;}
+    .p-title{font-size:15pt;}
+    .project,.tr,.fit .card,.gallery figure,.callout,.arch{break-inside:avoid;}
+    .gallery figure.phone{max-width:120px;}
+    a{color:var(--ink);}
+    .hero .meta a,.hero .meta span{background:#fff;}
+  }
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <span class="brand">이상진 <span style="color:var(--faint);font-weight:500">/ Lee Sangjin</span></span>
+  <span class="links">
+    <a href="#about">About</a><a href="#fit">직무 적합성</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
+  </span>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <span class="eyebrow">넥스트클라우드 Technical Trainer · Technical Enablement Intern 지원</span>
+  <h1>이상진 — 백엔드·AI 개발자<small>RAG · AWS · AI 코딩 도구로 만들고, 문서로 풀어냅니다</small></h1>
+  <p class="lead">AI와 클라우드를 직접 서비스로 만들고, 그 과정을 남이 이해하고 그대로 따라 쓸 수 있게 문서로 정리하는 개발자입니다. 최근 1년간 5개 팀 프로젝트에서 백엔드를 맡아 RAG 챗봇, AWS 위 AI 플랫폼, 경로 알림 서비스를 만들었습니다.</p>
+  <div class="meta">
+    <a href="https://github.com/Sangjin-kmu">GitHub · github.com/Sangjin-kmu</a>
+    <a href="mailto:leesangjin128@naver.com">leesangjin128@naver.com</a>
+    <span>국민대학교 소프트웨어학부 4학년</span>
+  </div>
+</div></header>
+
+<!-- ABOUT + SKILLS -->
+<section id="about"><div class="wrap">
+  <div class="sec-eyebrow">About</div>
+  <h2 class="sec-title">소개 &amp; 기술 스택</h2>
+  <div class="about">
+    <p>기능을 완성하는 것만큼이나 <b>"왜 이렇게 만들었는지"를 문서로 남기는 것</b>을 일의 일부로 여깁니다. 모든 프로젝트의 README에 아키텍처와 역할 분담을 적었고, PR 본문에는 변경 의도·함정·회귀 방지 포인트를 담아 처음 보는 사람도 맥락 없이 따라올 수 있게 했습니다.</p>
+    <p>AWS Certified Cloud Practitioner를 보유하고 있으며, <b>Claude Code 등 AI 코딩 도구를 실제 개발 워크플로</b>에 녹여 써 왔습니다.</p>
+  </div>
+  <div class="skills">
+    <div class="skrow"><div class="k">Backend</div><div class="v"><code>Java</code> <code>Spring Boot</code> (JPA·Security·Scheduling·WebFlux) · <code>Node.js</code> <code>Express</code> <code>TypeScript</code></div></div>
+    <div class="skrow"><div class="k">AI · LLM</div><div class="v">RAG 백엔드 오케스트레이션(임베딩·삭제·분석) · <code>OpenAI gpt-image</code> · <code>Google Gemini</code></div></div>
+    <div class="skrow"><div class="k">AI 개발도구</div><div class="v"><code>Claude Code</code> · <code>CodeRabbit</code>(AI 리뷰) · <code>Kiro</code>(스펙 기반 개발)</div></div>
+    <div class="skrow"><div class="k">Cloud · Infra</div><div class="v"><code>AWS</code> EC2·S3·CloudFront·RDS·Amplify · <code>Docker</code> · GitHub Pages</div></div>
+    <div class="skrow"><div class="k">DB · API</div><div class="v"><code>PostgreSQL</code> <code>MySQL</code> <code>Flyway</code> · ODsay·TMAP·Kakao API · OAuth2 · Web Push</div></div>
+    <div class="skrow"><div class="k">기타</div><div class="v"><code>React</code>(PWA) · <code>Android</code>(Java·Room) · <code>Unity</code>(C#)</div></div>
+    <div class="skrow"><div class="k">자격증</div><div class="v">AWS Cloud Practitioner(CLF) · SQLD · 리눅스마스터 · 정보처리기능사 <span style="color:var(--faint)">(AWS SAA·정보처리기사 준비 중)</span></div></div>
+  </div>
+</div></section>
+
+<!-- FIT -->
+<section id="fit"><div class="wrap">
+  <div class="sec-eyebrow">Why me</div>
+  <h2 class="sec-title">넥스트클라우드 Technical Trainer에 맞는 이유</h2>
+  <div class="fit">
+    <div class="card"><h3><span class="n">01</span>RAG · AI 에이전트</h3><p>KDD에서 RAG 챗봇 백엔드를 직접 구현하고, AI 서버(임베딩·검색·생성) 연동을 오케스트레이션했습니다.</p></div>
+    <div class="card"><h3><span class="n">02</span>AI 코딩 도구</h3><p>Claude Code·CodeRabbit·Kiro를 워크플로에 녹여, 두띵 커밋 251건 중 228건을 Claude와 페어로 작성했습니다.</p></div>
+    <div class="card"><h3><span class="n">03</span>AWS · 클라우드</h3><p>AWS Cloud Practitioner 보유. EC2·S3·CloudFront·RDS·Amplify로 서비스를 직접 운영했습니다.</p></div>
+    <div class="card"><h3><span class="n">04</span>기술 문서화</h3><p>README·API 명세·아키텍처와 첫 사용자용 17단계 온보딩 튜토리얼을 만들어 남이 따라올 수 있게 정리합니다.</p></div>
+    <div class="card"><h3><span class="n">05</span>쉽게 설명하기</h3><p>같은 내용을 엔지니어용 명세와 비개발자용 비유, 두 버전으로 다시 쓰는 연습을 합니다.</p></div>
+    <div class="card"><h3><span class="n">06</span>빠른 실행</h3><p>새 기술을 빠르게 익혀 작은 결과물로 만들고, 부족한 부분은 솔직히 학습 중으로 둡니다.</p></div>
+  </div>
+</div></section>
+
+<!-- PROJECTS -->
+<section id="projects" style="padding-bottom:10px"><div class="wrap">
+  <div class="sec-eyebrow">Projects</div>
+  <h2 class="sec-title">프로젝트</h2>
+  <p style="font-size:14.5px;color:var(--sub);margin-top:-12px">직무 연관도가 높은 순서로 정리했습니다. 모든 코드·커밋·PR은 GitHub에서 확인할 수 있습니다.</p>
+
+  <!-- KDD -->
+  <article class="project">
+    <div class="p-top"><span class="p-num">01</span><span class="p-title">KDD — 학사 규정 RAG 챗봇 백엔드</span><span class="p-tag">RAG · AI 에이전트</span></div>
+    <p class="p-one">학칙·학사 규정 PDF를 근거로, <b>출처와 함께 답하는 RAG 챗봇</b>. AI가 지어내지 않고 실제 문서를 인용하게 만드는 것이 목표였습니다.</p>
+    <div class="p-meta">
+      <div><div class="ml">기간 / 구성</div><div class="mv">2026.03~06 · 멀티 레포(web·api·ai)</div></div>
+      <div><div class="ml">인원 / 역할</div><div class="mv">백엔드 2인 중 1인</div></div>
+      <div><div class="ml">기술 스택</div><div class="mv"><code>Java 17</code> <code>Spring Boot 3.4</code> <code>PostgreSQL</code> <code>Flyway</code> <code>PDFBox</code> <code>WebFlux</code></div></div>
+      <div><div class="ml">GitHub</div><div class="mv"><a href="https://github.com/KDD-Kookmin-Digital-Doc">KDD-Kookmin-Digital-Doc</a></div></div>
+    </div>
+    <div class="gallery">
+      <figure><img src="images/kdd_1_chat.jpg" alt="KDD 챗봇"><figcaption>출처를 인용하는 대화형 AI 챗봇</figcaption></figure>
+      <figure><img src="images/kdd_2_source.jpg" alt="출처 추적"><figcaption>답변 근거 문서·페이지 추적</figcaption></figure>
+      <figure><img src="images/kdd_3_trust.jpg" alt="신뢰도 표시"><figcaption>답변 신뢰도 표시</figcaption></figure>
+    </div>
+
+    <h4 class="blk">시스템 아키텍처</h4>
+    <div class="arch">
+      <div class="node"><div class="nt">Next.js 웹</div><div class="nd">사용자 채팅 UI</div></div>
+      <div class="arr">→</div>
+      <div class="node me"><div class="nt">Spring 백엔드 (담당)</div><div class="nd">문서 업로드·파싱·청킹 / FAQ·통계 / AI 서버 오케스트레이션</div></div>
+      <div class="arr">→</div>
+      <div class="node"><div class="nt">FastAPI AI 서버</div><div class="nd">임베딩(Cohere)·검색·리랭크·답변(AWS Bedrock Claude)</div></div>
+    </div>
+    <p style="font-size:13px;color:var(--faint)">왼쪽 Spring 백엔드가 제 담당입니다. 오른쪽 AI 서버(임베딩·LLM 자체)는 팀원이 만들었고, 저는 그 서버를 호출·조율하는 백엔드를 구현했습니다.</p>
+
+    <h4 class="blk">나의 역할</h4>
+    <ul class="b">
+      <li><b>문서 파이프라인 전체 구현</b> — PDF 업로드 → PDFBox 페이지별 파싱 → 페이지 경계를 넘지 않는 청킹(<code>550자·100자 오버랩</code>) → AI 서버 임베딩 요청</li>
+      <li><b>AI 서버 연동 3종</b>(임베딩·삭제·FAQ 분석)을 클라이언트로 캡슐화하고 트랜잭션 경계를 재설계</li>
+      <li><b>FAQ 자동 인입 파이프라인 구축</b> — 사용자 질문 수집 → AI 분석 → 학번·이메일·전화 PII 마스킹 → 관리자 검수 → FAQ 등록</li>
+      <li>다중 관리자 동시 승인을 막는 <b>비관적 락 상태머신</b>, 조회 중복을 제거한 인기 문서 집계, 정합성을 보장한 관리자 통계</li>
+    </ul>
+
+    <div class="tr">
+      <div class="tt">트러블슈팅 — AI 호출이 DB 트랜잭션을 붙잡는 문제</div>
+      <dl>
+        <dt class="p">문제</dt><dd>수십 초짜리 임베딩 호출이 트랜잭션 안에서 커넥션·락을 점유 → 동시 업로드 시 커넥션 풀 고갈 위험</dd>
+        <dt class="c">원인</dt><dd>문서 저장(트랜잭션)과 임베딩(외부 네트워크)이 한 메서드에 묶여 있었음</dd>
+        <dt class="s">해결</dt><dd>영속성 로직을 별도 트랜잭션으로 분리하고, 트랜잭션이 닫힌 뒤 AI를 호출하도록 경계를 재설계. <code>saveAndFlush</code>로 PK 선확보</dd>
+        <dt class="r">결과</dt><dd>AI 외부 호출 중 DB 락 미점유, 업로드·재처리를 상태머신(<code>PROCESSING→COMPLETED/FAILED</code>)으로 정리</dd>
+      </dl>
+    </div>
+    <div class="result"><b>결과</b> · 문서 파이프라인·FAQ 자동화·통계까지 백엔드 도메인 구현 · 병합 PR 13건 · 본인 작성 Flyway 마이그레이션 7건</div>
+    <div class="callout"><b>비개발자에게 30초로</b> · 규정 PDF를 잘게 잘라 저장해두고, 질문이 오면 관련 조각만 찾아 그걸 근거로 답합니다. 그래서 답마다 "몇 페이지에서 가져왔는지" 출처가 붙죠. 제 백엔드는 문서를 자르고 보관하고 AI에 넘기고 결과를 정리하는 '주방' 역할입니다.</div>
+  </article>
+
+  <!-- 두띵 -->
+  <article class="project">
+    <div class="p-top"><span class="p-num">02</span><span class="p-title">두띵(Doothing) — AWS 위 AI 커스텀 디자인 플랫폼</span><span class="p-tag">AWS · AI 도구</span></div>
+    <p class="p-one">공동구매할 굿즈를 <b>AI로 직접 디자인·가상 피팅</b>하는 서비스. 전체 355커밋 중 251커밋을 작성한 최다 기여 프로젝트입니다.</p>
+    <div class="p-meta">
+      <div><div class="ml">기간</div><div class="mv">2026.04~06</div></div>
+      <div><div class="ml">기여 / 역할</div><div class="mv">커밋 1위 <code>251/355</code> · 백엔드·AI·인프라 주도</div></div>
+      <div><div class="ml">기술 스택</div><div class="mv"><code>Node</code> <code>Express</code> <code>TypeScript</code> <code>PostgreSQL</code> <code>Socket.io</code> <code>AWS</code> <code>OpenAI</code> <code>Python(rembg)</code></div></div>
+      <div><div class="ml">GitHub</div><div class="mv"><a href="https://github.com/AWS-PORJECT-2/AWS_PROJECT_2">AWS-PORJECT-2/AWS_PROJECT_2</a></div></div>
+    </div>
+    <div class="gallery">
+      <figure><img src="images/doothing_1_landing.jpg" alt="두띵 랜딩"><figcaption>랜딩 — "우리의 상상을 현실로"</figcaption></figure>
+      <figure><img src="images/doothing_2_fund.jpg" alt="펀딩 개설"><figcaption>펀딩 개설 · 카테고리 네비게이션</figcaption></figure>
+      <figure><img src="images/doothing_3_board.jpg" alt="게시판"><figcaption>게시판 · 커뮤니티</figcaption></figure>
+    </div>
+
+    <h4 class="blk">AWS 시스템 아키텍처</h4>
+    <div class="arch">
+      <div class="node"><div class="nt">CloudFront / S3</div><div class="nd">정적 프론트 서빙</div></div>
+      <div class="arr">→</div>
+      <div class="node me"><div class="nt">EC2 · Express+TS</div><div class="nd">REST 79개 · 인증 · 실시간 채팅 · AI 작업 큐</div></div>
+      <div class="arr">→</div>
+      <div class="node"><div class="nt">PostgreSQL · OpenAI</div><div class="nd">EC2 로컬 DB · 비동기 폴링으로 gpt-image 호출</div></div>
+    </div>
+
+    <h4 class="blk">나의 역할</h4>
+    <ul class="b">
+      <li><b>OpenAI gpt-image 기반 도면 생성·가상 피팅 서비스 단독 구현</b> — 중복 호출 캐시·일일 한도·과금 로그·타임아웃 등 비용/안정성 통제 내장</li>
+      <li><b>AI 공급자 추상화 인터페이스</b> 설계로 <code>Gemini → OpenAI</code> 무중단 전환(라우트 변경 없이)</li>
+      <li><b>AWS 인프라 운영</b>(EC2·S3·CloudFront·RDS)과 <code>terser</code>+AWS CLI 기반 배포 자동화</li>
+      <li><b>Claude Code 등 AI 도구로 다회차 코드 감사</b> 수행 — 커밋 251건 중 228건이 Claude 페어</li>
+    </ul>
+
+    <div class="tr">
+      <div class="tt">트러블슈팅 — 70초짜리 AI 생성 vs 60초 CloudFront 타임아웃</div>
+      <dl>
+        <dt class="p">문제</dt><dd>AI 도면 생성이 CloudFront 오리진 타임아웃(60초) 안에 끝나지 않아 매번 실패</dd>
+        <dt class="c">원인</dt><dd>동기 단일 요청이라 생성이 끝날 때까지 한 연결을 붙잡아 60초를 못 버팀</dd>
+        <dt class="s">해결</dt><dd>입력 검증 후 작업 ID를 <code>202</code>로 즉시 반환, 생성은 백그라운드, 프론트가 3초 간격 폴링으로 결과 회수</dd>
+        <dt class="r">결과</dt><dd>60초 벽을 넘겨 AI 생성이 타임아웃 없이 안정적으로 완료</dd>
+      </dl>
+    </div>
+    <div class="tr">
+      <div class="tt">트러블슈팅 — 빠르게 늘린 기능의 보안을 AI 도구로 따라잡기</div>
+      <dl>
+        <dt class="s">해결</dt><dd>Claude Code·CodeRabbit·Kiro를 워크플로에 넣고 OWASP·DB·리뷰 관점으로 감사 라운드를 20여 차례 반복 → 정규식 백트래킹 DoS·소켓 IDOR·마감 경합 등을 라운드마다 수정</dd>
+        <dt class="r">결과</dt><dd>보안 결함을 반복적으로 제거. AI 도구를 일회성이 아닌 <b>재현 가능한 절차</b>로 활용한 경험</dd>
+      </dl>
+    </div>
+    <div class="result"><b>규모</b> · REST 엔드포인트 79개 · DB 마이그레이션 45개 중 37개 작성 · Python(numpy·rembg) 이미지 처리 툴 4종 · 크로스리전 RDS 지연 제거 위해 EC2 로컬 PostgreSQL 이전</div>
+  </article>
+
+  <!-- 오늘어디 -->
+  <article class="project">
+    <div class="p-top"><span class="p-num">03</span><span class="p-title">오늘어디(TodayWay) — 반복경로 출발 알림 PWA</span><span class="p-tag">캡스톤 · 팀 1위</span></div>
+    <p class="p-one">반복 일정·목적지를 등록하면 <b>외부 경로 API로 권장 출발 시각을 계산해 웹 푸시로 알려주는</b> PWA. 2026 국민대 캡스톤, 팀 1위 기여.</p>
+    <div class="p-meta">
+      <div><div class="ml">기간 / 배포</div><div class="mv">2026.04~05 · AWS Amplify</div></div>
+      <div><div class="ml">인원 / 역할</div><div class="mv">5인 팀 · 백엔드 전 도메인 단독 + 프론트</div></div>
+      <div><div class="ml">기술 스택</div><div class="mv"><code>Spring Boot 3.5</code> <code>MySQL</code> <code>JWT</code> <code>Web Push</code> <code>React PWA</code> · ODsay·TMAP·Kakao</div></div>
+      <div><div class="ml">GitHub</div><div class="mv"><a href="https://github.com/kookmin-sw/2026-capstone-53">kookmin-sw/2026-capstone-53</a></div></div>
+    </div>
+    <div class="gallery">
+      <figure class="phone"><img src="images/today_1_main.jpg" alt="메인"><figcaption>메인 — 권장 출발 시각·경로 안내</figcaption></figure>
+      <figure class="phone"><img src="images/today_2_map.jpg" alt="경로"><figcaption>경로 안내 — 구간별 소요·실시간 지도</figcaption></figure>
+      <figure class="phone"><img src="images/today_3_calendar.jpg" alt="캘린더"><figcaption>캘린더 — 반복 일정 관리</figcaption></figure>
+      <figure class="phone"><img src="images/today_4_setting.jpg" alt="설정"><figcaption>설정 — 알림·계정</figcaption></figure>
+    </div>
+
+    <h4 class="blk">나의 역할</h4>
+    <ul class="b">
+      <li><b>백엔드 8개 도메인</b>(인증·회원·일정·경로·푸시·지도·지오코딩·공통), 약 22개 REST 엔드포인트 단독 설계·구현</li>
+      <li><b>ODsay·TMAP·Kakao 외부 API 3종 연동</b> 및 장애 자동 복구 메커니즘 구축</li>
+      <li>권장 출발 시각 계산, <b>PushScheduler 기반 VAPID 웹 푸시</b> 알림</li>
+      <li>프론트: 첫 사용자용 <b>17단계 온보딩 튜토리얼</b>, 출/도착 지도 picker, 개발자 유형 테스트(24문항)</li>
+    </ul>
+
+    <div class="tr">
+      <div class="tt">트러블슈팅 — 외부 경로 API 실패를 어떻게 회복할 것인가</div>
+      <dl>
+        <dt class="p">문제</dt><dd>ODsay가 일시 장애·키 만료로 실패하면 경로가 잠긴 채 회복 수단이 없어 알림 누락</dd>
+        <dt class="c">분석</dt><dd>실패를 <b>일시 장애·인증 만료·매핑 오류</b>로 분류 — 재시도해도 소용없는 4xx를 대상에서 제외하는 게 핵심</dd>
+        <dt class="s">해결</dt><dd>등록 시 1회 즉시 재시도 + 스케줄러가 <code>5분 쿨다운·최대 5회</code> 백그라운드 재시도, 401/403은 운영자에게 노출</dd>
+        <dt class="r">결과</dt><dd>사용자 개입 없이 일시 장애가 <b>약 25분 내 자동 복구</b>. 단위 테스트 12건으로 회귀 차단</dd>
+      </dl>
+    </div>
+    <div class="tr">
+      <div class="tt">트러블슈팅 — 데모 직전 터진 500 (요일 6개 이상이면 등록 실패)</div>
+      <dl>
+        <dt class="c">원인</dt><dd>요일 CSV 컬럼이 <code>VARCHAR(20)</code>. 5요일(19자)은 통과하지만 6요일부터 길이 초과 — 특정 요일이 아니라 '요일 개수'가 원인</dd>
+        <dt class="s">해결</dt><dd>컬럼을 <code>VARCHAR(31)</code>로 무중단 확장 + 입력 단계 유효성 검사로 400 선차단</dd>
+        <dt class="r">결과</dt><dd>6요일 이상 정상 처리. 통합 테스트 3건(201/400/400)으로 재발 차단</dd>
+      </dl>
+    </div>
+    <div class="result"><b>결과</b> · 병합 PR 29건 · AWS Amplify·GitHub Pages 멀티 배포로 데모 완수 · 전역 예외처리 에러코드 18종, Flyway V1~V10</div>
+  </article>
+
+  <!-- Aivive -->
+  <article class="project">
+    <div class="p-top"><span class="p-num">04</span><span class="p-title">Aivive — LLM 식단 건강관리 안드로이드 앱</span><span class="p-tag">LLM 연동 · 원스토어 배포</span></div>
+    <p class="p-one">수분·식사·운동을 기록하고 <b>Gemini로 식단 조언</b>을 받는 앱. 식단 도메인을 담당했습니다.</p>
+    <div class="p-meta">
+      <div><div class="ml">기간 / 배포</div><div class="mv">2025.10~11 · 원스토어 배포</div></div>
+      <div><div class="ml">인원 / 역할</div><div class="mv">3인 팀 · 식단·캘린더·프로필 담당</div></div>
+      <div><div class="ml">기술 스택</div><div class="mv"><code>Android(Java)</code> <code>Google Gemini</code> <code>Room</code></div></div>
+      <div><div class="ml">GitHub</div><div class="mv"><a href="https://github.com/tldbs0420/Team_9-MobileProgramming_2025">Team_9-MobileProgramming_2025</a></div></div>
+    </div>
+    <div class="gallery">
+      <figure class="phone"><img src="images/aivive_1_home.jpg" alt="메인"><figcaption>메인 — 식단 관리 카드</figcaption></figure>
+      <figure class="phone"><img src="images/aivive_2_routine.jpg" alt="루틴"><figcaption>기록·루틴 관리</figcaption></figure>
+      <figure class="phone"><img src="images/aivive_3_point.jpg" alt="포인트"><figcaption>포인트 적립</figcaption></figure>
+    </div>
+    <h4 class="blk">나의 역할</h4>
+    <ul class="b">
+      <li><b>Gemini를 식단 기능에 연동</b> — 식단 조언, 조언 기반 후속 질문 4개 자동 생성, 음식명 입력 시 예상 칼로리 자동 조회(비동기 콜백)</li>
+      <li>출력 형식을 제약한 프롬프트 + 정규식 후처리로 <b>자연어 응답을 코드가 바로 쓸 정형 데이터로 가공</b></li>
+      <li><code>Room</code>으로 음식 DB(엔티티·DAO·외래키 CASCADE)·캘린더·프로필 화면 제작</li>
+    </ul>
+    <div class="result"><b>결과</b> · 병합 PR 4건 · 실제 소스 약 +2,900/-820줄 · 원스토어 배포 <span style="color:var(--faint)">(AI 모델 초기화는 팀장, 식단 기능 연결은 본인)</span></div>
+  </article>
+
+  <!-- 게임 -->
+  <article class="project">
+    <div class="p-top"><span class="p-num">05</span><span class="p-title">좀비 생존 FPS — Unity 게임</span><span class="p-tag">C# · 시스템 설계</span></div>
+    <p class="p-one">Unity·C# 좀비 생존·탐색 게임. <b>상점·무기 강화·능력치 업그레이드 등 게임 진행 시스템과 인게임 HUD</b>를 담당했습니다.</p>
+    <div class="p-meta">
+      <div><div class="ml">기간</div><div class="mv">2025.10~11</div></div>
+      <div><div class="ml">인원 / 역할</div><div class="mv">4인 팀 2위 기여 · 게임플레이 시스템·HUD</div></div>
+      <div><div class="ml">기술 스택</div><div class="mv"><code>Unity</code> <code>C#</code> <code>ScriptableObject</code></div></div>
+      <div><div class="ml">GitHub</div><div class="mv"><a href="https://github.com/tldbs0420/Team_6-GameSoftware_2025">Team_6-GameSoftware_2025</a></div></div>
+    </div>
+    <div class="gallery">
+      <figure><img src="images/game_1_weapon.jpg" alt="무기 시스템"><figcaption>무기 시스템 — 능력치·강화 재료</figcaption></figure>
+      <figure><img src="images/game_2_shop.jpg" alt="상점"><figcaption>아이템 상점</figcaption></figure>
+      <figure><img src="images/game_3_skill.jpg" alt="능력치 강화"><figcaption>능력치 강화(스킬 트리)</figcaption></figure>
+      <figure><img src="images/game_4_inventory.jpg" alt="인벤토리"><figcaption>인벤토리 · 월드 맵</figcaption></figure>
+      <figure><img src="images/game_5_hud.jpg" alt="HUD"><figcaption>인게임 HUD · 거점 상호작용</figcaption></figure>
+    </div>
+    <h4 class="blk">나의 역할</h4>
+    <ul class="b">
+      <li>상점 → 인벤토리 → 무기/능력치 강화로 이어지는 <b>게임 내 경제 루프를 데이터(ScriptableObject)-로직-UI 계층으로 분리 설계</b></li>
+      <li>인게임 HUD(나침반·탄약·낮밤 시계·레이더), 아이템 줍기 로직, 도메인별 사운드 매니저 등 <b>C# 약 3,300줄(38개 스크립트)</b> 구현</li>
+      <li>백엔드·AI 직무와는 거리가 있지만, 객체지향 설계와 시스템 통합·팀 협업을 보여주는 사례입니다.</li>
+    </ul>
+  </article>
+</div></section>
+
+<!-- EDU / CONTACT -->
+<section id="contact" style="border-bottom:none"><div class="wrap">
+  <div class="sec-eyebrow">Education &amp; Contact</div>
+  <h2 class="sec-title">학력 · 자격 · 연락처</h2>
+  <div class="twocol">
+    <div>
+      <h3>학력 · 자격증</h3>
+      <ul class="listy">
+        <li>국민대학교 소프트웨어학부 · 4학년 <span class="d">(2026년 1학기 수료, 졸업 예정)</span></li>
+        <li>AWS Certified Cloud Practitioner (CLF)</li>
+        <li>SQLD · 리눅스마스터 · 정보처리기능사</li>
+        <li>AWS Solutions Architect Associate · 정보처리기사 <span class="d">(준비 중)</span></li>
+      </ul>
+    </div>
+    <div>
+      <h3>교육·전달 역량</h3>
+      <ul class="listy">
+        <li>사용자 온보딩 콘텐츠 — 17단계 튜토리얼·개발자 유형 테스트 기획·구현</li>
+        <li>PR 본문을 명세·DB 매핑·함정·회귀 방지까지 담아 문서화</li>
+        <li>같은 내용을 엔지니어용/비개발자용 두 버전으로 작성</li>
+        <li>AI 도구 활용 절차를 따라 할 수 있는 플레이북으로 정리</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="big">함께 일하고 싶습니다.</div>
+  <div class="links">
+    <a href="mailto:leesangjin128@naver.com">leesangjin128@naver.com</a> ·
+    <a href="https://github.com/Sangjin-kmu">github.com/Sangjin-kmu</a>
+  </div>
+  <div class="sm">이상진 · 백엔드·AI 개발자 · 넥스트클라우드 Technical Trainer 지원</div>
+</div></footer>
+
+</body>
+</html>
