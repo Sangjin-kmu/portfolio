@@ -9,11 +9,11 @@
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#1c2128; --panel:#22272e; --panel2:#2d333b; --editor:#1c2128;
-  --line:#373e47; --line2:#2d333b;
-  --fg:#adbac7; --fg-bright:#cdd9e5; --fg-dim:#768390; --fg-dim2:#545d68;
-  --blue:#539bf5; --blue2:#6cb6ff; --green:#57ab5a; --purple:#b083f0;
-  --orange:#cc8033; --red:#e5534b; --yellow:#c69026; --teal:#39c5cf;
+  --bg:#0d1117; --panel:#161b22; --panel2:#21262d; --editor:#0d1117;
+  --line:#2a3138; --line2:#1c2128;
+  --fg:#d6dde5; --fg-bright:#f0f3f6; --fg-dim:#9aa4b0; --fg-dim2:#6e7681;
+  --blue:#58a6ff; --blue2:#79c0ff; --green:#4cc168; --purple:#bf8cf2;
+  --orange:#d2a04a; --red:#f0726a; --yellow:#d2b04a; --teal:#56cdd6;
   --mono:'JetBrains Mono',ui-monospace,'SF Mono',monospace;
   --sans:'Pretendard','Apple SD Gothic Neo',system-ui,sans-serif;
 }
@@ -68,8 +68,17 @@ a{color:var(--blue);text-decoration:none;} a:hover{text-decoration:underline;}
 .editor{flex:1;overflow-y:auto;position:relative;}
 .breadcrumb{font-size:11.5px;color:var(--fg-dim);padding:7px 26px;border-bottom:1px solid var(--line2);background:#1a1f2566;position:sticky;top:0;z-index:5;backdrop-filter:blur(4px);}
 .breadcrumb b{color:var(--fg);}
-.doc{display:none;max-width:980px;margin:0 auto;padding:34px 40px 90px;}
-.doc.on{display:block;}
+.doc{display:block;max-width:900px;margin:0 auto;padding:6px 40px 26px;scroll-margin-top:6px;}
+.file-head{max-width:900px;margin:30px auto 0;padding:10px 40px 0;border-top:1px solid var(--line);
+  display:flex;align-items:center;gap:9px;color:var(--fg-dim);font-size:12.5px;scroll-margin-top:6px;}
+.file-head:first-child{border-top:none;margin-top:6px;}
+.file-head .fi{font-size:13px;}
+.file-head .fn{color:var(--fg-bright);font-weight:600;}
+.file-head .meta{margin-left:auto;color:var(--fg-dim2);font-size:11px;}
+.file-head .fh-badge{height:22px;width:22px;border-radius:5px;object-fit:contain;}
+/* optional decorative slots (graceful: img removed if file missing) */
+.readme-logo{display:block;height:84px;width:auto;margin:6px 0 18px;}
+.act-avatar{width:30px;height:30px;border-radius:7px;object-fit:cover;}
 
 /* doc (markdown preview) styles */
 .doc h1{font-family:var(--sans);font-size:34px;font-weight:800;color:var(--fg-bright);letter-spacing:-0.02em;line-height:1.15;}
@@ -132,17 +141,21 @@ a{color:var(--blue);text-decoration:none;} a:hover{text-decoration:underline;}
 .ent .ef:last-child{border-bottom:none;} .ent .ef .pk{color:var(--yellow);}
 .erel{display:flex;align-items:center;color:var(--fg-dim);font-size:11px;padding-top:16px;}
 
-/* gallery — code-editor image grid */
-.gh{font-family:var(--mono);font-size:12px;color:var(--green);margin:34px 0 4px;}
+/* featured image — large, prominent */
+.feature{margin:20px auto;max-width:840px;border:1px solid var(--line);border-radius:11px;overflow:hidden;background:var(--panel);box-shadow:0 20px 48px -22px #000d;}
+.feature img{width:100%;height:auto;display:block;}
+.feature figcaption{font-family:var(--mono);font-size:12px;color:var(--fg-dim);padding:10px 15px;border-top:1px solid var(--line2);}
+/* gallery — justified photo rows (equal height, no crop) */
+.gh{font-family:var(--mono);font-size:12px;color:var(--green);margin:36px 0 6px;}
 .gh::before{content:"/* ";} .gh::after{content:" */";}
-.gallery{columns:3 240px;column-gap:16px;margin:14px 0;}
-.gallery figure{break-inside:avoid;margin:0 0 16px;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#22272e;}
-.gallery img{width:100%;height:auto;display:block;}
-.gallery figcaption{font-family:var(--mono);font-size:11px;color:var(--fg-dim);padding:8px 11px;border-top:1px solid var(--line2);}
+.gallery{display:flex;flex-wrap:wrap;gap:14px;margin:14px 0;}
+.gallery figure{margin:0;border:1px solid var(--line);border-radius:9px;overflow:hidden;background:var(--panel);display:flex;flex-direction:column;}
+.gallery img{height:236px;width:auto;max-width:100%;display:block;}
+.gallery figcaption{font-family:var(--mono);font-size:11px;color:var(--fg-dim);padding:8px 12px;border-top:1px solid var(--line2);}
+@media (max-width:820px){.gallery img{height:180px;}}
 
 /* code file (json / sh) */
-.code{display:none;max-width:980px;margin:0 auto;padding:18px 0 90px;font-family:var(--mono);font-size:13.5px;line-height:1.85;}
-.code.on{display:block;}
+.code{display:block;max-width:900px;margin:0 auto;padding:10px 0 26px;font-family:var(--mono);font-size:13.5px;line-height:1.85;}
 .code .ln{display:grid;grid-template-columns:46px 1fr;}
 .code .ln .n{color:var(--fg-dim2);text-align:right;padding-right:18px;user-select:none;}
 .code .ln .c{color:var(--fg);white-space:pre-wrap;}
@@ -243,7 +256,7 @@ a{color:var(--blue);text-decoration:none;} a:hover{text-decoration:underline;}
       <div class="ai on" title="Explorer">▤</div>
       <div class="ai" title="Search">⌕</div>
       <div class="ai" title="Git">⎇</div>
-      <div class="ai grow" title="Profile">◍</div>
+      <div class="ai grow" title="Profile"><img class="act-avatar" src="assets/avatar.png" alt="" onerror="this.replaceWith(document.createTextNode('◍'))"></div>
     </div>
 
     <!-- explorer -->
@@ -275,9 +288,10 @@ a{color:var(--blue);text-decoration:none;} a:hover{text-decoration:underline;}
 
           <!-- ===== README ===== -->
           <article class="doc on" data-doc="readme">
+            <img class="readme-logo" src="assets/logo.png" alt="" onerror="this.remove()">
             <h1>$ ./이상진 --portfolio</h1>
             <p class="sub">백엔드 · AI 개발자 — 웹 파싱과 챗봇에서 시작해, 지금은 RAG·LLM과 AWS 클라우드를 다룹니다.</p>
-            <p class="cmt">왼쪽 파일을 클릭하거나, 아래 터미널에 명령을 입력해 둘러보세요.</p>
+            <p class="cmt">그냥 스크롤하면 전부 읽힙니다. 왼쪽 파일·아래 터미널로 원하는 곳으로 점프할 수도 있어요.</p>
             <div class="kvs" style="max-width:560px">
               <div class="kv"><div class="k">$ open</div><div class="v"><span class="lnk-doc" data-go="about">about.md</span> · <span class="lnk-doc" data-go="career">career.log</span> · <span class="lnk-doc" data-go="skills">skills.json</span></div></div>
               <div class="kv"><div class="k">$ ls projects</div><div class="v"><span class="lnk-doc" data-go="doothing">두띵</span> · <span class="lnk-doc" data-go="kdd">KDD</span> · <span class="lnk-doc" data-go="today">오늘어디</span> · <span class="lnk-doc" data-go="aivive">Aivive</span> · <span class="lnk-doc" data-go="game">SECTION&nbsp;NULL</span></div></div>
@@ -335,9 +349,7 @@ a{color:var(--blue);text-decoration:none;} a:hover{text-decoration:underline;}
               <div class="kv"><div class="k">stack</div><div class="v">Node.js · Express · TypeScript · PostgreSQL · AWS EC2·S3·CloudFront·RDS · OpenAI gpt-image · Python</div></div>
             </div>
             <div class="btns"><a class="pri" href="https://github.com/AWS-PORJECT-2/AWS_PROJECT_2" target="_blank" rel="noopener">GitHub ↗</a></div>
-            <div class="gallery">
-              <figure><img src="assets/doothing-model.jpg" alt="실착용"><figcaption>AI 디자인 굿즈 실제 제작·착용</figcaption></figure>
-            </div>
+            <figure class="feature"><img src="assets/doothing-model.jpg" alt="실착용"><figcaption>AI로 디자인한 굿즈를 실제로 제작해 착용한 모습</figcaption></figure>
             <h2><span class="hash">##</span> 문제의식</h2>
             <p>굿즈는 수요가 분명한데도 디자인·소량 제작 단가·공동구매 운영의 벽에 막힙니다. 디자인 → 펀딩 → 제작을 한 흐름으로 잇되, <b>AI 생성의 타임아웃·비용·실패를 운영 가능한 구조</b>로 만드는 것이 핵심이었습니다.</p>
             <h2><span class="hash">##</span> 시스템 아키텍처 · AWS</h2>
@@ -383,7 +395,7 @@ a{color:var(--blue);text-decoration:none;} a:hover{text-decoration:underline;}
               <div class="kv"><div class="k">stack</div><div class="v">Java · Spring Boot · PostgreSQL · pgvector · FastAPI · AWS Lightsail·RDS·Bedrock · Cohere</div></div>
             </div>
             <div class="btns"><a class="pri" href="https://github.com/KDD-Kookmin-Digital-Doc" target="_blank" rel="noopener">GitHub ↗</a></div>
-            <div class="gallery"><figure><img src="assets/kdd-chat.jpg" alt="채팅"><figcaption>채팅 — 근거 문서·출처·신뢰도와 함께 답변</figcaption></figure></div>
+            <figure class="feature"><img src="assets/kdd-chat.jpg" alt="채팅"><figcaption>채팅 — 질문에 근거 문서·출처·신뢰도와 함께 답변</figcaption></figure>
             <h2><span class="hash">##</span> 문제의식</h2>
             <p>일반 챗봇은 그럴듯하게 지어냅니다. 학사 규정처럼 정확성이 중요한 도메인에서는 답변이 <b>실제 문서를 근거로 출처를 추적</b>할 수 있어야 했습니다. AI 연산은 FastAPI가, 그 서버를 조율하는 백엔드는 제가 맡았습니다.</p>
             <h2><span class="hash">##</span> 시스템 아키텍처 · 3-Tier</h2>
@@ -441,7 +453,7 @@ a{color:var(--blue);text-decoration:none;} a:hover{text-decoration:underline;}
               <div class="kv"><div class="k">stack</div><div class="v">Spring Boot · MySQL · Web Push(VAPID) · React PWA · ODsay·TMAP·Kakao</div></div>
             </div>
             <div class="btns"><a class="pri" href="https://github.com/kookmin-sw/2026-capstone-53" target="_blank" rel="noopener">GitHub ↗</a><a href="https://kookmin-sw.github.io/2026-capstone-53/" target="_blank" rel="noopener">소개 사이트 ↗</a><a href="https://kookmin-sw.github.io/2026-capstone-53/devtype/index.html" target="_blank" rel="noopener">개발자 유형 테스트 ↗</a></div>
-            <div class="gallery"><figure><img src="assets/today-landing.jpg" alt="소개 사이트"><figcaption>직접 만든 소개 사이트 "언제 갈까?"</figcaption></figure></div>
+            <figure class="feature"><img src="assets/today-landing.jpg" alt="소개 사이트"><figcaption>직접 만든 소개 사이트 — 손그림 컨셉의 "언제 갈까?"</figcaption></figure>
             <h2><span class="hash">##</span> 문제의식</h2>
             <p>매일 같은 길도 교통·환승 지연 때문에 출발 시각은 매번 다릅니다. 일정을 등록해두면 권장 출발 시각을 계산해 알려주는 서비스를 만들었습니다. 가장 까다로운 건 <b>외부 경로·지오코딩 API의 잦은 장애·키 만료</b>였습니다.</p>
             <h2><span class="hash">##</span> 시스템 아키텍처</h2>
@@ -533,7 +545,7 @@ a{color:var(--blue);text-decoration:none;} a:hover{text-decoration:underline;}
               <div class="kv"><div class="k">stack</div><div class="v">Unity · C# · ScriptableObject · New Input System</div></div>
             </div>
             <div class="btns"><a class="pri" href="https://github.com/tldbs0420/Team_6-GameSoftware_2025" target="_blank" rel="noopener">GitHub ↗</a></div>
-            <div class="gallery"><figure><img src="assets/game-003.jpg" alt="타이틀"><figcaption>SECTION NULL — 좀비 생존 FPS</figcaption></figure></div>
+            <figure class="feature"><img src="assets/game-003.jpg" alt="타이틀"><figcaption>SECTION NULL — 좀비 생존·탐색 FPS</figcaption></figure>
             <h2><span class="hash">##</span> 핵심 기능</h2>
             <p>상점 → 인벤토리 → 강화로 이어지는 <b>경제 루프</b>를 데이터(ScriptableObject)-로직-UI 계층으로 분리해 설계했습니다. 등급별 스탯·재료를 데이터화한 무기 강화, 6종 능력치 업그레이드, 시선 기반 나침반·탄약·낮밤 시계로 구성한 인게임 HUD를 만들었습니다.</p>
             <h2><span class="hash">##</span> 트러블슈팅</h2>
@@ -644,33 +656,52 @@ function renderCode(el, rows, kind){
 renderCode(document.getElementById('skillsCode'), skillsJSON, 'json');
 renderCode(document.getElementById('contactCode'), contactSH, 'sh');
 
-/* ===== tabs + open file ===== */
+/* ===== scroll-based navigation (no click required to read) ===== */
 const editor=document.getElementById('editor'), crumb=document.getElementById('crumb'),
       tabsEl=document.getElementById('tabs'), winFile=document.getElementById('winFile'),
       stLang=document.getElementById('stLang'), sidebar=document.getElementById('sidebar');
-let openTabs=['readme'], active='readme';
-
-function render(){
-  document.querySelectorAll('[data-doc]').forEach(d=>d.classList.toggle('on',d.dataset.doc===active));
-  document.querySelectorAll('.row[data-file]').forEach(r=>r.classList.toggle('on',r.dataset.file===active));
-  crumb.innerHTML=FILES[active].crumb.replace(/›\s*([^›]+)$/,'› <b>$1</b>');
-  winFile.textContent=FILES[active].name; stLang.textContent=FILES[active].lang;
-  tabsEl.innerHTML=openTabs.map(t=>`<div class="tab ${t===active?'on':''}" data-tab="${t}"><span class="dot">●</span>${FILES[t].name}<span class="x" data-close="${t}">×</span></div>`).join('');
-  editor.scrollTop=0;
-}
-function open(f){
-  if(!FILES[f])return;
-  if(!openTabs.includes(f))openTabs.push(f);
-  active=f; render(); sidebar.classList.remove('open');
-}
-document.querySelectorAll('.row[data-file]').forEach(r=>r.addEventListener('click',()=>open(r.dataset.file)));
-tabsEl.addEventListener('click',e=>{
-  const c=e.target.closest('[data-close]'); if(c){e.stopPropagation();const f=c.dataset.close;openTabs=openTabs.filter(t=>t!==f);if(active===f)active=openTabs[openTabs.length-1]||'readme';if(!openTabs.length)openTabs=['readme'];render();return;}
-  const t=e.target.closest('[data-tab]'); if(t)open(t.dataset.tab);
+const ORDER=['readme','about','career','skills','doothing','kdd','today','aivive','game','contact'];
+const ICON={readme:'≡',about:'≡',career:'≡',skills:'{}',contact:'$',doothing:'≡',kdd:'≡',today:'≡',aivive:'≡',game:'≡'};
+const arts={};
+document.querySelectorAll('[data-doc]').forEach(a=>arts[a.dataset.doc]=a);
+/* reorder so contact is last, then insert a file-head before each */
+ORDER.forEach(f=>{ if(arts[f]) editor.appendChild(arts[f]); });
+const BADGE={doothing:1,kdd:1,today:1,aivive:1,game:1,about:1,career:1,skills:1,contact:1};
+ORDER.forEach(f=>{
+  const a=arts[f]; if(!a)return;
+  const fh=document.createElement('div'); fh.className='file-head'; fh.id='fh-'+f;
+  const badge=BADGE[f]?`<img class="fh-badge" src="assets/badge-${f}.png" alt="" onerror="this.remove()">`:'';
+  fh.innerHTML=`${badge}<span class="fi">${ICON[f]}</span><span class="fn">${FILES[f].name}</span><span class="meta">${FILES[f].lang}</span>`;
+  editor.insertBefore(fh,a);
 });
-document.querySelectorAll('.lnk-doc').forEach(l=>{l.style.cursor='pointer';l.style.color='var(--blue2)';l.addEventListener('click',()=>open(l.dataset.go));});
+/* tabs = all files; active follows scroll */
+tabsEl.innerHTML=ORDER.map(t=>`<div class="tab" data-tab="${t}"><span class="dot">●</span>${FILES[t].name}</div>`).join('');
+let active='readme';
+function setActive(f){
+  if(active===f)return; active=f;
+  document.querySelectorAll('.row[data-file]').forEach(r=>r.classList.toggle('on',r.dataset.file===f));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('on',t.dataset.tab===f));
+  const tab=tabsEl.querySelector('.tab.on'); if(tab) tab.scrollIntoView({inline:'nearest',block:'nearest'});
+  crumb.innerHTML=FILES[f].crumb.replace(/›\s*([^›]+)$/,'› <b>$1</b>');
+  winFile.textContent=FILES[f].name; stLang.textContent=FILES[f].lang;
+}
+function goto(f){
+  const head=document.getElementById('fh-'+f); if(!head)return;
+  editor.scrollTo({top:head.offsetTop-2,behavior:'smooth'});
+  sidebar.classList.remove('open');
+}
+function open(f){ goto(f); }   /* terminal alias */
+document.querySelectorAll('.row[data-file]').forEach(r=>r.addEventListener('click',()=>goto(r.dataset.file)));
+tabsEl.addEventListener('click',e=>{const t=e.target.closest('[data-tab]'); if(t)goto(t.dataset.tab);});
+document.querySelectorAll('.lnk-doc').forEach(l=>{l.style.cursor='pointer';l.style.color='var(--blue2)';l.addEventListener('click',()=>goto(l.dataset.go));});
 document.getElementById('menuBtn').addEventListener('click',()=>sidebar.classList.toggle('open'));
 document.getElementById('termMin').addEventListener('click',()=>document.getElementById('terminal').classList.toggle('min'));
+/* scrollspy */
+const spy=new IntersectionObserver(es=>{
+  es.forEach(e=>{ if(e.isIntersecting) setActive(e.target.dataset.doc); });
+},{root:editor,rootMargin:'0px 0px -75% 0px',threshold:0});
+ORDER.forEach(f=>{ if(arts[f]) spy.observe(arts[f]); });
+setActive('readme');
 
 /* ===== terminal ===== */
 const termBody=document.getElementById('termBody'), termIn=document.getElementById('termIn');
@@ -715,7 +746,6 @@ function typeIntro(){
 window.matchMedia('(prefers-reduced-motion: reduce)').matches
   ? (intro.forEach(([c,o])=>{prompt(c);tline('<span class="out">'+o+'</span>');}),tline('<span class="dim">help 입력</span>'))
   : setTimeout(typeIntro,500);
-render();
 </script>
 </body>
 </html>
