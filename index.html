@@ -304,12 +304,14 @@ a{color:var(--blue);text-decoration:none;} a:hover{text-decoration:underline;}
           <!-- ===== about ===== -->
           <article class="doc" data-doc="about">
             <h1>이상진</h1>
-            <p class="sub">백엔드 · AI 개발자 · 국민대학교 소프트웨어학부</p>
-            <p class="lead">고등학교 때 웹을 파싱해 정보를 긁어오는 챗봇을 만들던 흥미가, 지금은 문서를 검색해 근거와 함께 답하는 RAG와 AWS 위의 AI 서비스로 이어졌습니다.</p>
-            <p>카카오톡 봇과 얼굴인식·머신러닝을 독학했고, 소프트웨어 특기자전형으로 국민대학교에 들어와 다섯 개의 팀 프로젝트에서 백엔드와 인프라를 맡았습니다. '검색해서 가져온다'는 한 가지 관심이 파싱에서 챗봇으로, 다시 RAG로 자연스럽게 자랐습니다.</p>
-            <p>기능을 완성하는 것만큼이나 "왜 이렇게 만들었는지"를 아키텍처·트러블슈팅 기록으로 남기는 것을 일의 일부로 여깁니다. 복잡한 클라우드·AI 기술을 혼자 아는 데서 멈추지 않고 남이 이해하고 쓸 수 있는 형태로 바꾸는 일에 흥미가 있습니다.</p>
-            <hr>
-            <p class="cmt">다음: <span class="lnk-doc" data-go="career">career.log</span> 에서 지나온 과정을 확인하세요.</p>
+            <p class="sub">백엔드 · AI 개발자 · 국민대학교 소프트웨어학부 4학년</p>
+            <p class="lead">RAG·LLM 연동, AWS 클라우드 운영, 외부 API 기반 백엔드를 주로 합니다.</p>
+            <p>고등학교 때 카카오톡 봇·얼굴인식·머신러닝을 독학해 소프트웨어 특기자전형으로 입학했고, 대학에서 다섯 개의 팀 프로젝트에서 백엔드·인프라를 맡았습니다. 학사 규정을 출처와 함께 답하는 RAG 챗봇, AWS 위에서 AI 이미지 생성을 운영하는 굿즈 펀딩 플랫폼, 외부 경로 API를 묶은 반복이동 알림 서비스를 만들었습니다.</p>
+            <ul>
+              <li><b>주력</b> — Spring·Node 백엔드, RAG·LLM 연동, AWS(EC2·S3·CloudFront·RDS·Bedrock) 운영</li>
+              <li><b>자격증</b> — AWS Cloud Practitioner · SQLD · 리눅스마스터 · 정보처리기능사</li>
+              <li><b>수상</b> — 제4회 국민대학교 알고리즘 대회 장려상 (참가 300명)</li>
+            </ul>
           </article>
 
           <!-- ===== career ===== -->
@@ -351,8 +353,13 @@ a{color:var(--blue);text-decoration:none;} a:hover{text-decoration:underline;}
             </div>
             <div class="btns"><a class="pri" href="https://github.com/AWS-PORJECT-2/AWS_PROJECT_2" target="_blank" rel="noopener">GitHub ↗</a></div>
             <figure class="feature"><img src="assets/doothing-model.jpg" alt="실착용"><figcaption>AI로 디자인한 굿즈를 실제로 제작해 착용한 모습</figcaption></figure>
-            <h2><span class="hash">##</span> 문제의식</h2>
-            <p>굿즈는 수요가 분명한데도 디자인·소량 제작 단가·공동구매 운영의 벽에 막힙니다. 디자인 → 펀딩 → 제작을 한 흐름으로 잇되, <b>AI 생성의 타임아웃·비용·실패를 운영 가능한 구조</b>로 만드는 것이 핵심이었습니다.</p>
+            <h2><span class="hash">##</span> 핵심 기여</h2>
+            <ul>
+              <li><b>AI 이미지 생성 서비스 단독 구현</b> — gpt-image-1로 도면·가상 피팅 생성. 입력 크기 캡·중복요청 캐시·일일 한도·과금 로그·타임아웃까지 비용·안정성 통제 내장</li>
+              <li><b>AI 공급자 인터페이스 추상화</b> — Gemini → OpenAI를 라우트 변경 없이 무중단 전환</li>
+              <li><b>비동기 작업 + 폴링</b>으로 60초 CDN 타임아웃 우회 / <b>결제 마감 스케줄러</b>를 분산락으로 보호</li>
+              <li>REST 79개 · 마이그레이션 45개 중 37개 작성 · S3+CloudFront 배포 자동화</li>
+            </ul>
             <h2><span class="hash">##</span> 시스템 아키텍처 · AWS</h2>
             <div class="flow">
               <div class="nd"><div class="t">사용자 웹·모바일</div><div class="d">Vanilla JS · Capacitor</div></div>
@@ -372,8 +379,7 @@ a{color:var(--blue);text-decoration:none;} a:hover{text-decoration:underline;}
               <div class="step"><div class="l">해결</div><div><b>pg_try_advisory_lock</b> 분산락으로 락 미획득 시 tick을 건너뛰고 connect 실패도 흡수</div></div>
               <div class="step"><div class="l">결과</div><div>DB 단절 시 크래시·마감 중복 처리 모두 방지</div></div>
             </div>
-            <div class="result"><div class="rl">result</div><b>251 커밋(1위)</b> / REST 79개 / 마이그레이션 45개 중 37개 작성 / Python 이미지 처리 툴 4종.</div>
-            <p class="cmt">회고 — AI 기능의 난이도는 모델 호출이 아니라 타임아웃·비용·캐시·실패 같은 운영 제약을 구조화하는 데 있었습니다.</p>
+            <div class="result"><div class="rl">result</div><b>전체 355 커밋 중 251 커밋(1위)</b> · REST 79개 · 마이그레이션 37개 · Python 이미지 처리 툴 4종 · 커밋 다수가 AI 도구 페어.</div>
             <div class="gh">screens — doothing</div>
             <div class="gallery">
               <figure><img src="assets/doothing-editor.jpg" alt="에디터"><figcaption>웹 디자인 에디터 · 과잠</figcaption></figure>
@@ -397,8 +403,14 @@ a{color:var(--blue);text-decoration:none;} a:hover{text-decoration:underline;}
             </div>
             <div class="btns"><a class="pri" href="https://github.com/KDD-Kookmin-Digital-Doc" target="_blank" rel="noopener">GitHub ↗</a></div>
             <figure class="feature"><img src="assets/kdd-chat.jpg" alt="채팅"><figcaption>채팅 — 질문에 근거 문서·출처·신뢰도와 함께 답변</figcaption></figure>
-            <h2><span class="hash">##</span> 문제의식</h2>
-            <p>일반 챗봇은 그럴듯하게 지어냅니다. 학사 규정처럼 정확성이 중요한 도메인에서는 답변이 <b>실제 문서를 근거로 출처를 추적</b>할 수 있어야 했습니다. AI 연산은 FastAPI가, 그 서버를 조율하는 백엔드는 제가 맡았습니다.</p>
+            <h2><span class="hash">##</span> 핵심 기여</h2>
+            <p>임베딩·검색·생성 같은 AI 연산은 FastAPI가, 그 서버를 조율하고 문서·FAQ·통계를 책임지는 백엔드를 맡았습니다.</p>
+            <ul>
+              <li><b>문서 파싱·청킹 파이프라인</b> — PDFBox 페이지별 스트리밍 추출(OOM 방지), 550자·100자 오버랩 청킹 후 임베딩 요청</li>
+              <li><b>AI 서버 연동 클라이언트화</b> (embed·delete·analyze) — 네트워크·HTTP 오류를 예외 하나로 일관 래핑</li>
+              <li><b>FAQ 자동 인입</b> — 학번·이메일·전화 정규식 마스킹 / 승인은 FOR UPDATE 비관락으로 다중 관리자 동시성 안전</li>
+              <li><b>관리자 통계</b> 7개 집계를 REPEATABLE_READ로 묶어 정합 보장 · Flyway 마이그레이션 6건</li>
+            </ul>
             <h2><span class="hash">##</span> 시스템 아키텍처 · 3-Tier</h2>
             <div class="flow">
               <div class="nd"><div class="t">Vercel 프론트</div><div class="d">Next.js · CI/CD</div></div>
@@ -455,8 +467,14 @@ a{color:var(--blue);text-decoration:none;} a:hover{text-decoration:underline;}
             </div>
             <div class="btns"><a class="pri" href="https://github.com/kookmin-sw/2026-capstone-53" target="_blank" rel="noopener">GitHub ↗</a><a href="https://kookmin-sw.github.io/2026-capstone-53/" target="_blank" rel="noopener">소개 사이트 ↗</a><a href="https://kookmin-sw.github.io/2026-capstone-53/devtype/index.html" target="_blank" rel="noopener">개발자 유형 테스트 ↗</a></div>
             <figure class="feature"><img src="assets/today-landing.jpg" alt="소개 사이트"><figcaption>직접 만든 소개 사이트 — 손그림 컨셉의 "언제 갈까?"</figcaption></figure>
-            <h2><span class="hash">##</span> 문제의식</h2>
-            <p>매일 같은 길도 교통·환승 지연 때문에 출발 시각은 매번 다릅니다. 일정을 등록해두면 권장 출발 시각을 계산해 알려주는 서비스를 만들었습니다. 가장 까다로운 건 <b>외부 경로·지오코딩 API의 잦은 장애·키 만료</b>였습니다.</p>
+            <h2><span class="hash">##</span> 핵심 기여</h2>
+            <p>백엔드의 외부 API 연동과 DB 스키마를 맡았습니다.</p>
+            <ul>
+              <li><b>대중교통 + 보행자 경로 통합</b> — ODsay + TMAP를 매핑하고 route 결과를 TTL 캐시(hit/miss/stale)</li>
+              <li><b>경로 장애 자동복구</b> — 실패를 transient/auth/mapping으로 분류하는 enum + 5분 쿨다운·최대 5회 재시도 스케줄러</li>
+              <li><b>지오코딩 / 역지오코딩</b> — Kakao keyword+address 머지, SHA-256 30일 캐시로 quota 보호</li>
+              <li>권장 출발 시각 산출 + VAPID 웹 푸시 / 홍보용 <b>개발자 유형 테스트</b>(24문항·8유형) 직접 구현</li>
+            </ul>
             <h2><span class="hash">##</span> 시스템 아키텍처</h2>
             <div class="flow">
               <div class="nd"><div class="t">React PWA</div><div class="d">일정·지도·푸시 구독</div></div>
@@ -509,6 +527,11 @@ a{color:var(--blue);text-decoration:none;} a:hover{text-decoration:underline;}
               <div class="kv"><div class="k">stack</div><div class="v">Android (Java) · Google Gemini · Room</div></div>
             </div>
             <div class="btns"><a class="pri" href="https://github.com/tldbs0420/Team_9-MobileProgramming_2025" target="_blank" rel="noopener">GitHub ↗</a></div>
+            <h2><span class="hash">##</span> 핵심 기여</h2>
+            <ul>
+              <li><b>Gemini 식단 조언 3기능</b> — 조언 생성 / 후속 질문 4개 / 음식명 → 예상 칼로리 추출. 프롬프트로 출력 형식 제약 + 정규식 후처리</li>
+              <li><b>음식 Room DB</b>(food_goal·food_log) 설계 + DAO / 캘린더 요약 / 사용자 프로필</li>
+            </ul>
             <h2><span class="hash">##</span> 데이터 모델 · Room</h2>
             <div class="erd">
               <div class="ent"><div class="eh">food_goal</div><div class="ef"><span class="pk">date</span> (PK) · target_calorie</div></div>
@@ -547,14 +570,13 @@ a{color:var(--blue);text-decoration:none;} a:hover{text-decoration:underline;}
             </div>
             <div class="btns"><a class="pri" href="https://github.com/tldbs0420/Team_6-GameSoftware_2025" target="_blank" rel="noopener">GitHub ↗</a></div>
             <figure class="feature"><img src="assets/game-003.jpg" alt="타이틀"><figcaption>SECTION NULL — 좀비 생존·탐색 FPS</figcaption></figure>
-            <h2><span class="hash">##</span> 핵심 기능</h2>
-            <p>상점 → 인벤토리 → 강화로 이어지는 <b>경제 루프</b>를 데이터(ScriptableObject)-로직-UI 계층으로 분리해 설계했습니다. 등급별 스탯·재료를 데이터화한 무기 강화, 6종 능력치 업그레이드, 시선 기반 나침반·탄약·낮밤 시계로 구성한 인게임 HUD를 만들었습니다.</p>
-            <h2><span class="hash">##</span> 트러블슈팅</h2>
-            <div class="callout"><div class="ct">어두운 탐색 구간에서 아이템을 찾기 어렵고 줍기 대상이 모호함</div>
-              <div class="step"><div class="l">해결</div><div>손전등 + 조준 레이캐스트로 바라보는 아이템만 아웃라인·줍기 표시(MaterialPropertyBlock)</div></div>
-              <div class="step"><div class="l">결과</div><div>탐색 가시성·획득 UX 개선</div></div>
-            </div>
-            <p class="cmt">회고 — 상점·인벤토리·강화가 어긋나지 않게 맞물리려면 데이터와 로직을 떼어 두는 편이 유지보수에 유리했습니다.</p>
+            <h2><span class="hash">##</span> 핵심 기여</h2>
+            <ul>
+              <li>상점 → 인벤토리 → 강화 <b>경제 루프</b>를 데이터(ScriptableObject)-로직-UI 계층으로 분리 설계</li>
+              <li>등급별 스탯·재료 기반 무기 강화 / 레벨·포인트로 6종 능력치 업그레이드</li>
+              <li><b>인게임 HUD</b> — 시선 기반 나침반, 무기별 탄약, 태양 각도로 계산하는 낮/밤 시계</li>
+              <li>손전등 + 조준 레이캐스트 아웃라인으로 어두운 구간 탐색·획득 UX 개선</li>
+            </ul>
             <div class="gh">screens — section-null</div>
             <div class="gallery">
               <figure><img src="assets/game-007.jpg" alt="무기"><figcaption>무기 시스템 · 등급·강화</figcaption></figure>
