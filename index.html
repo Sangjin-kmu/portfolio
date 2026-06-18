@@ -135,98 +135,87 @@ p{margin-bottom:16px;}p:last-child{margin-bottom:0;}
 .sknote{margin-top:26px;font-size:15px;color:var(--mute);line-height:1.6;}
 
 /* ===== projects ===== */
-.pintro{font-size:18.5px;color:var(--body);max-width:700px;margin-bottom:12px;}
-.proj{padding-top:84px;margin-top:72px;border-top:1px solid var(--line);}
-.proj:first-of-type{padding-top:40px;margin-top:34px;border-top:none;}
-.pnum{font-size:14px;font-weight:700;color:var(--accent);letter-spacing:0.06em;}
-.ptitle{font-size:clamp(27px,3.6vw,38px);font-weight:800;color:var(--ink);letter-spacing:-0.04em;margin-top:12px;line-height:1.14;}
-.pone{margin-top:17px;font-size:19px;color:var(--body);line-height:1.6;max-width:800px;}
-.pone b{color:var(--ink);}
-.pmeta{margin-top:30px;display:flex;flex-wrap:wrap;gap:14px 40px;padding-bottom:4px;}
-.pmeta .m{display:flex;flex-direction:column;gap:4px;}
-.pmeta .ml{font-size:13px;color:var(--mute);font-weight:500;}
-.pmeta .mv{font-size:16px;color:var(--ink);font-weight:700;}
-.ptags{margin-top:22px;font-size:15.5px;color:var(--mute);}
-.ptags span:not(:last-child)::after{content:"·";margin:0 8px;color:var(--faint);}
-.plink{margin-top:22px;display:inline-flex;}
-.plink a{font-size:15px;font-weight:600;color:var(--accent);border-bottom:2px solid var(--accent-soft);padding-bottom:2px;transition:border-color .2s;}
-.plink a:hover{border-color:var(--accent);}
-
-/* clean image (no fake browser frame) */
-.shot{border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 18px 50px -12px rgba(20,22,30,.18);border:1px solid var(--line);}
-.shot .bar{display:none;}
+.pintro{font-size:18.5px;color:var(--body);max-width:700px;}
+/* bold, distinct project header */
+.proj{margin-top:130px;}
+.proj:first-of-type{margin-top:64px;}
+.proj-head{text-align:center;max-width:800px;margin:0 auto 44px;}
+.proj-no{font-size:clamp(58px,9vw,112px);font-weight:800;color:var(--accent-soft);line-height:.82;letter-spacing:-0.05em;}
+.proj-cat{font-size:13px;font-weight:700;color:var(--accent);letter-spacing:0.12em;text-transform:uppercase;margin-top:8px;}
+.proj-title{font-size:clamp(28px,4.2vw,44px);font-weight:800;color:var(--ink);letter-spacing:-0.045em;line-height:1.08;margin-top:16px;}
+.proj-one{margin-top:20px;font-size:18.5px;color:var(--body);line-height:1.6;}
+.proj-one b{color:var(--ink);}
+.proj-meta{margin-top:26px;display:flex;flex-wrap:wrap;gap:6px 0;justify-content:center;font-size:15px;color:var(--mute);}
+.proj-meta b{color:var(--ink);font-weight:700;}
+.proj-meta span:not(:last-child)::after{content:"·";margin:0 16px;color:var(--faint);}
+.proj-tags{margin-top:14px;font-size:14px;color:var(--faint);}
+.proj-links{margin-top:26px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.proj-links a{font-size:14.5px;font-weight:700;color:#fff;background:var(--accent);border-radius:10px;padding:10px 19px;transition:background .2s;}
+.proj-links a.ghost{color:var(--accent);background:var(--accent-soft);}
+.proj-links a:hover{background:var(--accent-d);}
+.proj-links a.ghost:hover{background:#dde4fb;}
+/* featured image — centered, large */
+.feature{max-width:900px;margin:0 auto;}
+.shot{border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 30px 70px -24px rgba(20,22,30,.3);border:1px solid var(--line);}
 .shot img{width:100%;height:auto;display:block;}
-.phone{border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 18px 50px -12px rgba(20,22,30,.2);border:1px solid var(--line);max-width:300px;margin:0 auto;}
-.phone img{width:100%;height:auto;display:block;}
 figure.cap{margin:0;}
-figure.cap figcaption{margin-top:14px;font-size:15px;color:var(--mute);line-height:1.55;}
-.pcover{margin:36px 0 10px;}
-.pcover figcaption{text-align:center;}
+figure.cap figcaption{margin-top:14px;font-size:14.5px;color:var(--mute);line-height:1.5;text-align:center;}
+.proj-body{max-width:780px;margin:50px auto 0;}
+.block{margin-top:54px;}
 
-/* sub heading */
-.psub{font-size:15px;font-weight:700;color:var(--ink);margin:60px 0 18px;display:flex;align-items:center;gap:12px;letter-spacing:-0.01em;}
-.psub::before{content:"";width:22px;height:2px;background:var(--accent);border-radius:2px;}
-.ptext{font-size:18px;color:var(--body);line-height:1.74;max-width:800px;}
+/* sub heading (centered label) */
+.psub{font-size:13px;font-weight:700;color:var(--accent);margin:0 0 18px;letter-spacing:0.1em;text-transform:uppercase;text-align:center;}
+.ptext{font-size:18px;color:var(--body);line-height:1.76;text-align:center;}
 .ptext b{color:var(--ink);}
 
-/* feature row (text + image alternating) */
-.feat{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center;margin:30px 0;}
-.feat.rev .ft{order:2;}
-.feat .ft h4{font-size:23px;font-weight:800;color:var(--ink);letter-spacing:-0.03em;margin-bottom:15px;}
-.feat .ft p{font-size:17px;color:var(--body);line-height:1.74;}
-.feat .ft p b{color:var(--ink);}
-.feat .ft .mini{margin-top:16px;list-style:none;}
-.feat .ft .mini li{position:relative;padding-left:19px;margin-bottom:9px;font-size:15.5px;line-height:1.62;color:var(--body);}
-.feat .ft .mini li::before{content:"";position:absolute;left:0;top:11px;width:7px;height:2px;background:var(--accent);border-radius:2px;}
-
-/* gallery */
-.gal{display:grid;gap:24px;margin:24px 0 6px;}
-.gal.g2{grid-template-columns:1fr 1fr;}
-.gal.g3{grid-template-columns:repeat(3,1fr);}
-.gal.phones{grid-template-columns:repeat(4,1fr);gap:22px;align-items:start;}
-
-/* diagram (open, not a card) */
-.arch{margin:14px 0;display:flex;align-items:stretch;flex-wrap:wrap;gap:0;}
-.node{flex:1;min-width:132px;border:1px solid var(--line);border-radius:11px;background:var(--bg2);padding:15px 17px;}
+/* diagram (no arrows — sequential nodes) */
+.arch{margin:18px 0;display:flex;align-items:stretch;flex-wrap:wrap;gap:12px;justify-content:center;}
+.node{flex:0 1 172px;border:1px solid var(--line);border-radius:13px;background:var(--bg2);padding:16px;text-align:center;}
 .node.me{border-color:var(--accent);background:var(--accent-soft);}
-.node .t{font-size:15.5px;font-weight:700;color:var(--ink);letter-spacing:-0.01em;}
+.node .t{font-size:15px;font-weight:700;color:var(--ink);}
 .node.me .t{color:var(--accent-d);}
-.node .d{font-size:13px;color:var(--mute);margin-top:6px;line-height:1.5;}
-.arr{display:flex;align-items:center;justify-content:center;width:34px;color:var(--faint);font-size:18px;flex-shrink:0;}
-.dcap{font-size:15px;color:var(--mute);margin-top:16px;line-height:1.66;max-width:840px;}
+.node .d{font-size:12.5px;color:var(--mute);margin-top:6px;line-height:1.5;}
+.dcap{font-size:15px;color:var(--mute);margin-top:18px;line-height:1.66;text-align:center;}
 
-/* rag pipeline (open columns) */
-.pipe{margin:14px 0;display:flex;flex-wrap:wrap;gap:0;}
-.pipe .st{flex:1;min-width:124px;padding:6px 20px;border-left:1px solid var(--line);}
-.pipe .st:first-child{padding-left:0;border-left:none;}
-.pipe .st .no{font-size:30px;font-weight:800;color:var(--accent);line-height:1;letter-spacing:-0.03em;}
-.pipe .st .nm{font-size:17px;font-weight:700;color:var(--ink);margin-top:12px;}
-.pipe .st .md{font-size:13px;color:var(--accent);margin-top:8px;font-weight:600;}
-.pipe .st .ds{font-size:14px;color:var(--mute);margin-top:8px;line-height:1.45;}
+/* gallery — masonry, centered, full images (no crop) */
+.gallery-h{text-align:center;font-size:13px;font-weight:700;color:var(--accent);letter-spacing:0.1em;text-transform:uppercase;margin:60px 0 6px;}
+.gallery{margin:24px auto 0;max-width:1060px;columns:3 290px;column-gap:22px;}
+.gallery figure{break-inside:avoid;margin:0 0 22px;}
+.gallery img{width:100%;height:auto;display:block;border-radius:13px;border:1px solid var(--line);box-shadow:0 14px 36px -16px rgba(20,22,30,.24);}
+.gallery figcaption{margin-top:10px;font-size:13.5px;color:var(--mute);line-height:1.45;}
 
-/* erd (open) */
-.erd{margin:14px 0;display:flex;flex-wrap:wrap;gap:18px;align-items:flex-start;}
-.ent{border:1px solid var(--line);border-radius:11px;background:#fff;min-width:178px;overflow:hidden;}
-.ent .eh{background:var(--bg2);color:var(--ink);font-weight:700;font-size:15px;padding:10px 14px;border-bottom:1px solid var(--line);}
-.ent .ef{font-size:13.5px;color:var(--body);padding:7px 14px;border-bottom:1px solid var(--line2);line-height:1.4;}
+/* rag pipeline (centered columns) */
+.pipe{margin:18px 0;display:flex;flex-wrap:wrap;gap:0;justify-content:center;}
+.pipe .st{flex:1;min-width:118px;max-width:175px;padding:6px 18px;border-left:1px solid var(--line);text-align:center;}
+.pipe .st:first-child{border-left:none;}
+.pipe .st .no{font-size:30px;font-weight:800;color:var(--accent);line-height:1;}
+.pipe .st .nm{font-size:16px;font-weight:700;color:var(--ink);margin-top:11px;}
+.pipe .st .md{font-size:12.5px;color:var(--accent);margin-top:7px;font-weight:600;}
+.pipe .st .ds{font-size:13px;color:var(--mute);margin-top:7px;line-height:1.45;}
+
+/* erd (no arrows, centered) */
+.erd{margin:18px 0;display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start;justify-content:center;}
+.ent{border:1px solid var(--line);border-radius:12px;background:#fff;min-width:172px;overflow:hidden;}
+.ent .eh{background:var(--bg2);color:var(--ink);font-weight:700;font-size:14.5px;padding:10px 14px;border-bottom:1px solid var(--line);}
+.ent .ef{font-size:13px;color:var(--body);padding:7px 14px;border-bottom:1px solid var(--line2);line-height:1.4;}
 .ent .ef:last-child{border-bottom:none;}
 .ent .ef .pk{color:var(--accent);font-weight:700;}
-.erel{display:flex;align-items:center;font-size:13px;color:var(--mute);padding-top:20px;white-space:nowrap;font-weight:500;}
+.erel{display:flex;align-items:center;font-size:12.5px;color:var(--mute);padding-top:20px;font-weight:600;}
 
-/* troubleshooting (open, no card) */
-.ts{margin:26px 0;padding-left:22px;border-left:2px solid var(--accent);}
-.ts .tt{font-size:19px;font-weight:700;color:var(--ink);margin-bottom:16px;letter-spacing:-0.02em;line-height:1.4;}
-.ts .step{display:grid;grid-template-columns:58px 1fr;gap:16px;margin-bottom:11px;font-size:16.5px;line-height:1.62;}
+/* troubleshooting (left-aligned, in centered column) */
+.ts{margin:22px 0;padding-left:22px;border-left:2px solid var(--accent);text-align:left;}
+.ts .tt{font-size:18px;font-weight:700;color:var(--ink);margin-bottom:14px;letter-spacing:-0.02em;line-height:1.4;}
+.ts .step{display:grid;grid-template-columns:52px 1fr;gap:14px;margin-bottom:10px;font-size:16px;line-height:1.6;}
 .ts .step:last-child{margin-bottom:0;}
-.ts .step .sl{font-size:14px;font-weight:700;color:var(--accent);padding-top:2px;}
+.ts .step .sl{font-size:13.5px;font-weight:700;color:var(--accent);padding-top:2px;}
 .ts .step .sv{color:var(--body);}.ts .step .sv b{color:var(--ink);}
 
-/* result (open) */
-.result{margin-top:30px;padding-top:22px;border-top:2px solid var(--ink);}
-.result .rt{font-size:14px;color:var(--mute);font-weight:600;margin-bottom:11px;}
-.result p{font-size:18px;color:var(--body);margin:0;line-height:1.72;}
+/* result (centered) */
+.result{margin-top:34px;padding-top:24px;border-top:2px solid var(--ink);text-align:center;}
+.result .rt{font-size:13px;color:var(--mute);font-weight:600;margin-bottom:12px;text-transform:uppercase;letter-spacing:0.08em;}
+.result p{font-size:17.5px;color:var(--body);margin:0;line-height:1.72;}
 .result p b{color:var(--ink);}
-.retro{margin-top:24px;font-size:17.5px;color:var(--body);line-height:1.76;}
+.retro{margin-top:22px;font-size:17px;color:var(--body);line-height:1.76;text-align:center;}
 .retro b{color:var(--ink);}
 
 @media (max-width:820px){
@@ -234,11 +223,10 @@ figure.cap figcaption{margin-top:14px;font-size:15px;color:var(--mute);line-heig
   .section{padding:72px 0;}
   .wrap{padding:0 22px;}
   .sk-cat{grid-template-columns:1fr;gap:0;} .sk-cat .k{padding:16px 0 2px;} .sk-cat .v{padding:0 0 16px;}
-  .feat{grid-template-columns:1fr;gap:24px;} .feat.rev .ft{order:0;}
-  .gal.g3{grid-template-columns:1fr 1fr;} .gal.phones{grid-template-columns:1fr 1fr;}
-  .arch{flex-direction:column;} .arch .arr{transform:rotate(90deg);width:100%;height:24px;}
-  .pipe{flex-direction:column;} .pipe .st{border-left:none;border-top:1px solid var(--line);padding:14px 0;} .pipe .st:first-child{border-top:none;padding-top:0;}
-  .erd{flex-direction:column;} .erel{padding-top:2px;}
+  .gallery{columns:2 150px;column-gap:14px;}
+  .proj{margin-top:90px;}
+  .pipe .st{max-width:none;min-width:46%;border-left:none;}
+  .erel{padding-top:2px;}
 }
 
 /* ===== print / PDF ===== */
@@ -301,7 +289,7 @@ figure.cap figcaption{margin-top:14px;font-size:15px;color:var(--mute);line-heig
     <div class="eyebrow reveal">About</div>
     <div class="about-grid">
       <p class="about-lead reveal">고등학교 때 웹을 파싱해 정보를 긁어오는 챗봇을 만들던 흥미가, 지금은 문서를 검색해 근거와 함께 답하는 RAG와 AWS 위의 AI 서비스로 이어졌습니다.</p>
-      <p class="reveal d1">SW 동아리 부장으로 카카오톡 봇과 얼굴인식·머신러닝을 독학하던 학생이, 소프트웨어 특기자전형으로 국민대학교에 들어와 다섯 개의 팀 프로젝트에서 백엔드와 인프라를 맡았습니다. '검색해서 가져온다'는 한 가지 관심이 파싱 → 챗봇 → RAG로 자연스럽게 자란 셈입니다.</p>
+      <p class="reveal d1">고등학교 때 카카오톡 봇과 얼굴인식·머신러닝을 독학했고, 소프트웨어 특기자전형으로 국민대학교에 들어와 다섯 개의 팀 프로젝트에서 백엔드와 인프라를 맡았습니다. '검색해서 가져온다'는 한 가지 관심이 파싱에서 챗봇으로, 다시 RAG로 자연스럽게 자랐습니다.</p>
       <p class="reveal d2">기능을 완성하는 것만큼이나 "왜 이렇게 만들었는지"를 아키텍처·트러블슈팅 기록으로 남기는 것을 일의 일부로 여깁니다. 복잡한 클라우드·AI 기술을 혼자 아는 데서 멈추지 않고 남이 이해하고 쓸 수 있는 형태로 바꾸는 일에 흥미가 있습니다.</p>
     </div>
   </div>
@@ -315,12 +303,12 @@ figure.cap figcaption{margin-top:14px;font-size:15px;color:var(--mute);line-heig
     <p class="section-sub reveal">'웹에서 원하는 정보를 가져온다'는 하나의 흥미가 파싱 → 봇 → 머신러닝 → RAG·클라우드로 이어진 길입니다.</p>
 
     <div class="phase reveal">
-      <div class="phase-h"><span class="tag alt">대학에 오기 전</span><span class="ttl">독학으로 만든 것들</span><span class="yr">고등학교 · SW 동아리 부장</span></div>
+      <div class="phase-h"><span class="tag alt">대학에 오기 전</span><span class="ttl">독학으로 만든 것들</span><span class="yr">고등학교</span></div>
       <p class="phase-sub">남이 시켜서가 아니라, 궁금해서 직접 만들어 보던 시기. 이때의 파싱·딥러닝 경험으로 소프트웨어 특기자전형에 합격했습니다.</p>
       <div class="tline">
-        <div class="tnode alt"><div class="th">카카오톡 봇 개발<span class="k">JAVA · 웹 파싱</span></div><div class="td">동아리원들과 즐길 미니게임(로또·성 쌓기)과, getWebText로 웹을 파싱해 게임 캐릭터 정보·날씨·실시간 검색어를 알려주는 봇. split·replace·trim으로 원하는 정보만 추출하는 법을 처음 익혔습니다.</div></div>
+        <div class="tnode alt"><div class="th">카카오톡 봇 개발<span class="k">JAVA · 웹 파싱</span></div><div class="td">친구들과 즐길 미니게임(로또·성 쌓기)과, 웹을 파싱해 게임 캐릭터 정보·날씨·실시간 검색어를 알려주는 봇. split·replace·trim으로 원하는 정보만 추출하는 법을 처음 익혔습니다.</div></div>
         <div class="tnode alt"><div class="th">얼굴인식 딥러닝<span class="k">Python · OpenCV</span></div><div class="td">아나콘다·OpenCV·Haar Cascade로 사진 속 얼굴을 인식. Computer Vision의 Classification·Object Detection 개념을 직접 공부하며 딥러닝에 입문했습니다.</div></div>
-        <div class="tnode alt"><div class="th">국민대 학식 앱<span class="k">Android · jsoup</span></div><div class="td">jsoup로 학식표를 파싱해 스마트폰에서 바로 보는 안드로이드 앱. AsyncTask로 파싱 전후 동작을 제어하고 try-catch로 예외에 대비했습니다.</div></div>
+        <div class="tnode alt"><div class="th">학식 앱<span class="k">Android · jsoup</span></div><div class="td">jsoup로 학식표를 파싱해 스마트폰에서 바로 보는 안드로이드 앱. AsyncTask로 파싱 전후 동작을 제어하고 try-catch로 예외에 대비했습니다.</div></div>
         <div class="tnode alt"><div class="th">머신러닝 강화학습 연구<span class="k">Reinforcement Learning</span></div><div class="td">공룡게임 AI로 강화학습을 연구 — 보상이 최대가 되도록 학습시켜 8세대 만에 1000점에 도달. 잘못된 학습(점프 회피)과 올바른 학습의 차이를 관찰했습니다.</div></div>
       </div>
     </div>
@@ -331,7 +319,7 @@ figure.cap figcaption{margin-top:14px;font-size:15px;color:var(--mute);line-heig
       <div class="tline">
         <div class="tnode"><div class="th">제4회 국민대학교 알고리즘 대회 장려상<span class="k">참가 300명</span></div><div class="td">교내 알고리즘 대회에서 장려상을 수상했습니다.</div></div>
         <div class="tnode"><div class="th">다섯 개의 팀 프로젝트<span class="k">백엔드 · 인프라</span></div><div class="td">두띵(AWS 위 AI 굿즈 펀딩) · KDD(학사 규정 RAG 챗봇) · 오늘어디(경로 알림 캡스톤) · Aivive(LLM 식단 앱) · Unity 게임. 백엔드·AI·인프라를 맡았습니다.</div></div>
-        <div class="tnode"><div class="th">클라우드·AI 도구 실무화<span class="k">AWS · Claude Code</span></div><div class="td">AWS Cloud Practitioner를 취득하고, Claude Code 같은 AI 코딩 도구를 페어 프로그래밍·코드 감사에 상시 활용했습니다.</div></div>
+        <div class="tnode"><div class="th">클라우드·AI 도구 실무화<span class="k">AWS · AI 도구</span></div><div class="td">AWS Cloud Practitioner를 취득하고, Claude·Codex·Gemini·Manus 같은 AI 도구를 페어 프로그래밍·코드 감사에 상시 활용했습니다.</div></div>
       </div>
     </div>
   </div>
@@ -348,408 +336,248 @@ figure.cap figcaption{margin-top:14px;font-size:15px;color:var(--mute);line-heig
     <div class="sk-cat reveal"><div class="k">Cloud · Infra</div><div class="v"><b>AWS EC2 · S3 · CloudFront · RDS</b>, Lightsail · Bedrock, Amplify, Docker, PM2, GitHub Actions</div></div>
     <div class="sk-cat reveal"><div class="k">Database</div><div class="v"><b>PostgreSQL</b>, MySQL, pgvector · HNSW, Flyway, Room</div></div>
     <div class="sk-cat reveal"><div class="k">Languages</div><div class="v"><b>Java</b>, TypeScript / JavaScript, Python, C#, SQL</div></div>
-    <div class="sk-cat reveal"><div class="k">AI 개발도구</div><div class="v"><b>Claude Code</b>, CodeRabbit, Kiro</div></div>
+    <div class="sk-cat reveal"><div class="k">AI 개발도구</div><div class="v"><b>Claude</b>, <b>Codex</b>, Gemini, Manus</div></div>
     <div class="sk-cat reveal"><div class="k">Tools · 기타</div><div class="v">Git · GitHub PR, Swagger, Notion, Vanilla JS, React, Android, Unity</div></div>
-    <div class="sk-cat reveal"><div class="k">자격증</div><div class="v"><b>AWS Cloud Practitioner</b>, SQLD, 리눅스마스터, 정보처리기능사, (준비) AWS SAA</div></div>
+    <div class="sk-cat reveal"><div class="k">자격증</div><div class="v"><b>AWS Cloud Practitioner</b>, SQLD, 리눅스마스터, 정보처리기능사</div></div>
   </div>
-  <p class="sknote reveal">주력은 Spring·Node 백엔드와 RAG·LLM 연동, AWS 운영입니다. 숙련도 막대(%)는 쓰지 않았습니다.</p>
 </div></section>
 <section class="section" id="projects"><div class="wrap">
-  <div class="eyebrow reveal">Projects</div>
-  <h2 class="reveal">만든 것들</h2>
-  <p class="pintro reveal">다섯 개의 팀 프로젝트입니다. 각 프로젝트의 실제 화면과 발표 자료를 바탕으로, 무엇을 왜 어떻게 만들었는지 정리했습니다.</p>
+  <div class="eyebrow reveal" style="justify-content:center">Projects</div>
+  <h2 class="reveal" style="text-align:center">만든 것들</h2>
+  <p class="pintro reveal" style="margin:0 auto;text-align:center">다섯 개의 팀 프로젝트입니다. 모든 화면은 발표 자료와 실제 서비스에서 직접 가져왔습니다.</p>
 
   <!-- ===== 01 두띵 ===== -->
   <article class="proj reveal" id="p-doothing">
-    <div class="pnum">PROJECT 01</div>
-    <div class="ptitle">두띵 — AWS 위 AI 굿즈 펀딩 플랫폼</div>
-    <div class="pone">대학생이 직접 디자인하고 함께 만드는 굿즈 크라우드펀딩 플랫폼. 디자인 → 펀딩 → 제작을 한 흐름으로 잇고, 전체 355 커밋 중 <b>251 커밋(1위)</b>을 작성해 백엔드·AI·인프라를 맡았습니다.</div>
-
-    <figure class="cap pcover reveal">
-      <div class="shot"><div class="bar"><i></i><i></i><i></i></div><img src="assets/doothing-landing.jpg" alt="두띵 랜딩 페이지"></div>
-      <figcaption>메인 랜딩 — "우리의 상상을, 현실로." 누구나 굿즈를 디자인하고 공동구매로 제작합니다.</figcaption>
-    </figure>
-
-    <div class="pmeta reveal">
-      <div class="m"><div class="ml">기간</div><div class="mv">2026.04 – 06</div></div>
-      <div class="m"><div class="ml">팀</div><div class="mv">3인 (개발·인프라 담당)</div></div>
-      <div class="m"><div class="ml">역할</div><div class="mv">백엔드 · AI · 인프라</div></div>
-      <div class="m"><div class="ml">기여</div><div class="mv">커밋 1위 251 / 355</div></div>
+    <div class="proj-head">
+      <div class="proj-no">01</div>
+      <div class="proj-cat">AWS · AI · 풀스택</div>
+      <h3 class="proj-title">두띵 — AI 굿즈 펀딩 플랫폼</h3>
+      <p class="proj-one">대학생이 직접 디자인해 공동구매로 만드는 굿즈 크라우드펀딩 플랫폼. 전체 355 커밋 중 <b>251 커밋(1위)</b>으로 백엔드·AI·인프라를 맡았습니다.</p>
+      <div class="proj-meta"><span>2026.04–06</span><span>3인 팀</span><span><b>백엔드·AI·인프라</b></span><span>커밋 1위</span></div>
+      <div class="proj-tags">Node.js · Express · TypeScript · PostgreSQL · AWS EC2·S3·CloudFront·RDS · OpenAI gpt-image · Python</div>
+      <div class="proj-links"><a href="https://github.com/AWS-PORJECT-2/AWS_PROJECT_2" target="_blank" rel="noopener">GitHub</a></div>
     </div>
-    <div class="ptags reveal"><span>Node.js</span><span>Express</span><span>TypeScript</span><span>PostgreSQL</span><span>AWS EC2·S3·CloudFront·RDS</span><span>OpenAI gpt-image-1</span><span>Python</span><span>PM2</span></div>
-    <div class="plink reveal"><a href="https://github.com/AWS-PORJECT-2/AWS_PROJECT_2" target="_blank" rel="noopener">GitHub 저장소 ↗</a></div>
-
-    <div class="psub reveal">문제의식</div>
-    <p class="ptext reveal">대학생 굿즈(과잠·키링·텀블러)는 수요가 분명한데도 디자인의 벽, 소량 제작 단가, 공동구매 운영의 번거로움에 막힙니다. 두띵은 이 셋을 하나의 흐름으로 잇습니다. 기술적으로 가장 까다로웠던 지점은 ① AI 이미지 생성이 한 번에 60초를 넘겨 CDN 타임아웃에 걸리는 것, ② 결제 마감 스케줄러가 상시 안전하게 돌아야 하는 것, ③ 흰 제품에 디자인을 입힐 실루엣 마스크가 부정확한 것이었습니다.</p>
-
-    <div class="psub reveal">시스템 아키텍처 · AWS</div>
-    <div class="arch reveal">
-      <div class="node"><div class="t">사용자 웹·모바일</div><div class="d">Vanilla JS · Capacitor</div></div>
-      <div class="arr">→</div>
-      <div class="node"><div class="t">CloudFront</div><div class="d">CDN · ACM TLS</div></div>
-      <div class="arr">→</div>
-      <div class="node"><div class="t">S3 정적 프론트</div><div class="d">HTML·CSS·JS</div></div>
-      <div class="arr">/api →</div>
-      <div class="node me"><div class="t">EC2 · API (담당)</div><div class="d">Express+TS · PM2 · 결제 스케줄러</div></div>
-      <div class="arr">→</div>
-      <div class="node"><div class="t">RDS · OpenAI</div><div class="d">PostgreSQL · gpt-image</div></div>
+    <figure class="cap feature"><div class="shot"><img src="assets/doothing-model.jpg" alt="두띵 실착용"></div><figcaption>AI로 디자인한 굿즈를 실제로 제작해 착용한 모습</figcaption></figure>
+    <div class="proj-body">
+      <div class="block"><div class="psub">문제의식</div><p class="ptext">굿즈는 수요가 분명한데도 디자인·소량 제작 단가·공동구매 운영의 벽에 막힙니다. 디자인 → 펀딩 → 제작을 한 흐름으로 잇되, <b>AI 생성의 타임아웃·비용·실패를 운영 가능한 구조</b>로 만드는 것이 핵심이었습니다.</p></div>
+      <div class="block"><div class="psub">시스템 아키텍처 · AWS</div>
+        <div class="arch">
+          <div class="node"><div class="t">사용자 웹·모바일</div><div class="d">Vanilla JS · Capacitor</div></div>
+          <div class="node"><div class="t">CloudFront</div><div class="d">CDN · TLS</div></div>
+          <div class="node"><div class="t">S3 정적 프론트</div><div class="d">HTML·CSS·JS</div></div>
+          <div class="node me"><div class="t">EC2 · API (담당)</div><div class="d">Express+TS · PM2 · 결제 스케줄러</div></div>
+          <div class="node"><div class="t">RDS · OpenAI</div><div class="d">PostgreSQL · gpt-image</div></div>
+        </div>
+        <p class="dcap">정적 프론트는 CloudFront/S3로, /api만 EC2(PM2)로 분리. AI 생성은 외부 OpenAI를 비동기로 호출하고, 결제 마감은 EC2의 상시 스케줄러가 처리합니다.</p></div>
+      <div class="block"><div class="psub">트러블슈팅</div>
+        <div class="ts"><div class="tt">70초 AI 생성 vs 60초 CloudFront 타임아웃</div>
+          <div class="step"><div class="sl">문제</div><div class="sv">gpt-image 생성이 약 70초로 CDN 오리진 타임아웃(60초)을 넘겨 매번 실패</div></div>
+          <div class="step"><div class="sl">해결</div><div class="sv">검증 직후 <b>jobId를 202로 반환</b>, 생성은 백그라운드, 본인 작업만 3초 간격 폴링으로 회수</div></div>
+          <div class="step"><div class="sl">결과</div><div class="sv">60초 벽을 넘겨 AI 생성이 타임아웃 없이 안정화</div></div></div>
+        <div class="ts"><div class="tt">마감 스케줄러가 DB 페일오버 시 죽거나 중복 처리</div>
+          <div class="step"><div class="sl">해결</div><div class="sv"><b>pg_try_advisory_lock</b> 분산락으로 락 미획득 시 tick을 건너뛰고, connect 실패도 흡수</div></div>
+          <div class="step"><div class="sl">결과</div><div class="sv">DB 단절 시 크래시·마감 중복 처리 모두 방지</div></div></div></div>
+      <div class="result"><div class="rt">결과</div><p>전체 355 커밋 중 <b>251 커밋(1위)</b> · REST 79개 · 마이그레이션 45개 중 37개 작성 · Python 이미지 처리 툴 4종.</p></div>
+      <p class="retro"><b>회고</b> · AI 기능의 난이도는 모델 호출이 아니라 타임아웃·비용·캐시·실패 같은 운영 제약을 구조화하는 데 있었습니다.</p>
     </div>
-    <p class="dcap reveal">정적 프론트는 CloudFront/S3로 분리 서빙하고 /api만 EC2(Express+TS, PM2)로 라우팅합니다. AI 생성은 외부 OpenAI를 비동기로 호출하고, 결제 마감은 EC2의 상시 스케줄러가 처리합니다.</p>
-
-    <div class="psub reveal">핵심 기능</div>
-    <div class="feat reveal">
-      <div class="ft">
-        <h4>AI 도면 · 가상 피팅</h4>
-        <p>옷 사진을 gpt-image-1로 <b>제작용 플랫 도면</b>으로 합성하고, 모델 착용 미리보기까지 생성합니다. AI 이미지 서비스를 단독으로 구현하며 비용·안정성 통제를 서비스에 내장했습니다.</p>
-        <ul class="mini">
-          <li>입력 크기 캡(8MB) · 60초 중복요청 캐시 · 일일 한도 · 과금 로그 · 타임아웃 — <b>5겹 통제</b></li>
-          <li>AI 공급자 추상화로 <b>Gemini → OpenAI를 라우트 변경 없이 무중단 전환</b></li>
-        </ul>
-      </div>
-      <figure class="cap">
-        <div class="shot"><div class="bar"><i></i><i></i><i></i></div><img src="assets/doothing-design.png" alt="AI 도면 생성 결과"></div>
-        <figcaption>AI 도면 생성 — 옷 사진을 앞·뒤 한 장의 플랫 제품 도면으로 합성 (gpt-image-1)</figcaption>
-      </figure>
+    <div class="gallery-h">화면 모음</div>
+    <div class="gallery">
+      <figure><img src="assets/doothing-editor.jpg" alt="디자인 에디터"><figcaption>웹 디자인 에디터 · 과잠 커스텀</figcaption></figure>
+      <figure><img src="assets/doothing-aidraft.jpg" alt="AI 도면"><figcaption>AI 도면 생성 · 앞뒤 플랫 합성</figcaption></figure>
+      <figure><img src="assets/doothing-editor2.jpg" alt="티셔츠 에디터"><figcaption>디자인 에디터 · 티셔츠</figcaption></figure>
+      <figure><img src="assets/doothing-funding.jpg" alt="펀딩 상세"><figcaption>펀딩 상세 · 목표달성형 공동구매</figcaption></figure>
+      <figure><img src="assets/doothing-list.jpg" alt="상품 목록"><figcaption>둘러보기 · 카테고리 상품 목록</figcaption></figure>
+      <figure><img src="assets/doothing-mobile.jpg" alt="모바일 앱"><figcaption>모바일 앱 홈 (Capacitor)</figcaption></figure>
     </div>
-
-    <div class="feat rev reveal">
-      <div class="ft">
-        <h4>웹 디자인 에디터</h4>
-        <p>복잡한 툴 학습 없이 브라우저에서 바로 — 색·텍스트·이미지·자수 패치를 올려 과잠·후드·티셔츠 등 10여 종 굿즈를 직접 디자인합니다. 앞·뒤·옆 면과 레이어를 지원합니다.</p>
-      </div>
-      <figure class="cap">
-        <div class="shot"><div class="bar"><i></i><i></i><i></i></div><img src="assets/doothing-editor.png" alt="디자인 에디터 - 과잠"></div>
-        <figcaption>디자인 에디터 — 과잠을 색·로고·텍스트로 커스텀</figcaption>
-      </figure>
-    </div>
-
-    <div class="feat reveal">
-      <div class="ft">
-        <h4>목표달성형 공동구매 펀딩</h4>
-        <p>목표 금액이 모여야 제작·결제되는 <b>리스크 제로</b> 구조. 초기 자본 0원·재고 0으로 누구나 펀딩을 개설하고, 실시간 달성률·남은 시간·참여 인원을 투명하게 보여줍니다.</p>
-        <ul class="mini">
-          <li>60초 주기 결제 마감 스케줄러를 advisory-lock으로 보호</li>
-          <li>서버측 가격 재계산으로 위·변조 방어</li>
-        </ul>
-      </div>
-      <figure class="cap">
-        <div class="shot"><div class="bar"><i></i><i></i><i></i></div><img src="assets/doothing-fitting.png" alt="펀딩 상세"></div>
-        <figcaption>펀딩 상세 — 달성률·참여 인원·리워드 티어</figcaption>
-      </figure>
-    </div>
-
-    <div class="feat rev reveal">
-      <div class="ft">
-        <h4>한 코드베이스로 웹·모바일</h4>
-        <p>Capacitor로 같은 웹 자산을 Android·iOS 네이티브 앱으로 함께 빌드합니다. 시스템 브라우저 + 딥링크로 인앱 OAuth 제약을 우회해, 네이티브 인력 없이 멀티플랫폼을 잡았습니다.</p>
-      </div>
-      <figure class="cap"><div class="phone"><img src="assets/doothing-mobile.png" alt="두띵 모바일 앱"></div>
-        <figcaption>모바일 앱 홈 — 둘러보기·디자인하기·메이커 페이지</figcaption>
-      </figure>
-    </div>
-
-    <div class="psub reveal">트러블슈팅</div>
-    <div class="ts reveal">
-      <div class="tt">70초 AI 생성 vs 60초 CloudFront 오리진 타임아웃</div>
-      <div class="step"><div class="sl">문제</div><div class="sv">gpt-image 생성이 약 70초로 CloudFront 오리진 타임아웃(60초)을 넘겨 매번 실패</div></div>
-      <div class="step"><div class="sl">해결</div><div class="sv">검증 직후 <b>jobId를 202로 반환</b>, 생성은 백그라운드, GET /ai/jobs/:id를 본인 작업만 3초 간격·최대 200초 폴링으로 회수</div></div>
-      <div class="step"><div class="sl">결과</div><div class="sv">60초 벽을 넘겨 AI 생성이 타임아웃 없이 안정적으로 완료</div></div>
-    </div>
-    <div class="ts reveal">
-      <div class="tt">마감 스케줄러가 DB 페일오버 시 죽거나 마감을 중복 처리</div>
-      <div class="step"><div class="sl">해결</div><div class="sv"><b>pg_try_advisory_lock</b> non-blocking 분산락으로 락 미획득 시 이번 tick을 건너뛰고, connect 실패도 흡수해 크래시 없이 다음 tick에서 회복</div></div>
-      <div class="step"><div class="sl">결과</div><div class="sv">DB 단절 시 프로세스 크래시·마감 중복 처리 모두 방지</div></div>
-    </div>
-
-    <div class="psub reveal">더 많은 화면</div>
-    <div class="gal g3 reveal">
-      <figure class="cap"><div class="shot"><div class="bar"><i></i><i></i><i></i></div><img src="assets/doothing-detail.png" alt="상품 목록"></div><figcaption>둘러보기 · 카테고리 상품 목록</figcaption></figure>
-      <figure class="cap"><div class="shot"><div class="bar"><i></i><i></i><i></i></div><img src="assets/doothing-board.jpg" alt="커뮤니티 게시판"></div><figcaption>커뮤니티 게시판 · 홍보·후기</figcaption></figure>
-      <figure class="cap"><div class="shot"><div class="bar"><i></i><i></i><i></i></div><img src="assets/doothing-create.jpg" alt="펀딩 개설"></div><figcaption>펀딩 개설 · 리워드 구성</figcaption></figure>
-    </div>
-
-    <div class="result reveal">
-      <div class="rt">결과</div>
-      <p>전체 355 커밋 중 <b>251 커밋(1위)</b> · REST 엔드포인트 79개 · DB 마이그레이션 45개 중 37개 작성 · Python 이미지 처리 툴 4종 · 커밋 228건이 Claude Code 페어.</p>
-    </div>
-    <p class="retro reveal"><b>회고</b> · AI 기능의 난이도는 모델 호출이 아니라 타임아웃·비용·캐시·실패 같은 운영 제약을 구조화하는 데 있었습니다. 공급자 인터페이스 한 겹이 전환 비용을 크게 줄였고, AI 코딩 도구를 반복 가능한 감사 절차로 엮으니 품질이 눈에 띄게 올랐습니다.</p>
   </article>
 
   <!-- ===== 02 KDD ===== -->
   <article class="proj reveal" id="p-kdd">
-    <div class="pnum">PROJECT 02</div>
-    <div class="ptitle">KDD — 학사 규정 RAG 챗봇</div>
-    <div class="pone">학칙·학사 규정 PDF를 근거로 <b>출처와 함께 답하는 RAG 챗봇</b>. AI가 지어내지 않고 실제 문서를 인용하게 만드는 백엔드를 맡았습니다.</div>
-
-    <div class="pmeta reveal">
-      <div class="m"><div class="ml">기간</div><div class="mv">2026.03 – 06</div></div>
-      <div class="m"><div class="ml">구성</div><div class="mv">멀티 레포 · 백엔드 담당</div></div>
-      <div class="m"><div class="ml">역할</div><div class="mv">문서 파이프라인 · AI 오케스트레이션 · FAQ · 통계</div></div>
+    <div class="proj-head">
+      <div class="proj-no">02</div>
+      <div class="proj-cat">RAG · LLM · 백엔드</div>
+      <h3 class="proj-title">KDD — 학사 규정 RAG 챗봇</h3>
+      <p class="proj-one">학칙·학사 규정 PDF를 근거로 <b>출처와 함께 답하는 RAG 챗봇</b>. AI가 지어내지 않고 실제 문서를 인용하게 만드는 백엔드를 맡았습니다.</p>
+      <div class="proj-meta"><span>2026.03–06</span><span><b>백엔드 담당</b></span><span>문서·AI·FAQ·통계</span></div>
+      <div class="proj-tags">Java · Spring Boot · PostgreSQL · pgvector · FastAPI · AWS Lightsail·RDS·Bedrock · Cohere</div>
+      <div class="proj-links"><a href="https://github.com/KDD-Kookmin-Digital-Doc" target="_blank" rel="noopener">GitHub</a></div>
     </div>
-    <div class="ptags reveal"><span>Java 17</span><span>Spring Boot 3.4</span><span>PostgreSQL · pgvector</span><span>FastAPI (AI)</span><span>AWS Lightsail·RDS·Bedrock</span><span>Cohere</span><span>Flyway</span></div>
-    <div class="plink reveal"><a href="https://github.com/KDD-Kookmin-Digital-Doc" target="_blank" rel="noopener">GitHub 저장소 ↗</a></div>
-
-    <div class="psub reveal">문제의식</div>
-    <p class="ptext reveal">일반 챗봇은 그럴듯하게 지어내는(hallucination) 한계가 있습니다. 학사 규정처럼 정확성이 중요한 도메인에서는 답변이 반드시 실제 문서를 근거로 하고 출처를 추적할 수 있어야 했습니다. 임베딩·검색·생성 같은 AI 연산은 별도 FastAPI 서버가, 그 서버를 호출·조율하고 문서·FAQ·통계 도메인을 책임지는 백엔드는 제가 맡았습니다.</p>
-
-    <div class="psub reveal">시스템 아키텍처 · 3-Tier</div>
-    <div class="arch reveal">
-      <div class="node"><div class="t">GitHub → Vercel</div><div class="d">Next.js 프론트 · CI/CD</div></div>
-      <div class="arr">REST·SSE →</div>
-      <div class="node me"><div class="t">Spring 백엔드 (담당)</div><div class="d">문서·FAQ·통계 · AI 오케스트레이션</div></div>
-      <div class="arr">→</div>
-      <div class="node"><div class="t">FastAPI AI 서버</div><div class="d">RAG 파이프라인</div></div>
-      <div class="arr">→</div>
-      <div class="node"><div class="t">RDS · Bedrock</div><div class="d">pgvector · Claude·Cohere</div></div>
+    <figure class="cap feature"><div class="shot"><img src="assets/kdd-chat.jpg" alt="KDD 채팅"></div><figcaption>채팅 — 질문에 근거 문서·출처와 신뢰도를 함께 답변</figcaption></figure>
+    <div class="proj-body">
+      <div class="block"><div class="psub">문제의식</div><p class="ptext">일반 챗봇은 그럴듯하게 지어냅니다. 학사 규정처럼 정확성이 중요한 도메인에서는 답변이 <b>실제 문서를 근거로 출처를 추적</b>할 수 있어야 했습니다. AI 연산은 FastAPI가, 그 서버를 조율하는 백엔드는 제가 맡았습니다.</p></div>
+      <div class="block"><div class="psub">시스템 아키텍처 · 3-Tier</div>
+        <div class="arch">
+          <div class="node"><div class="t">Vercel 프론트</div><div class="d">Next.js · CI/CD</div></div>
+          <div class="node me"><div class="t">Spring 백엔드 (담당)</div><div class="d">문서·FAQ·통계 · AI 오케스트레이션</div></div>
+          <div class="node"><div class="t">FastAPI AI 서버</div><div class="d">RAG 파이프라인</div></div>
+          <div class="node"><div class="t">RDS · Bedrock</div><div class="d">pgvector · Claude·Cohere</div></div>
+        </div>
+        <p class="dcap">AWS Lightsail에 백엔드·AI 서버를, RDS(PostgreSQL + pgvector)에 문서·벡터를 두고, 답변 생성은 AWS Bedrock의 Claude·Cohere를 씁니다.</p></div>
+      <div class="block"><div class="psub">RAG 파이프라인 · 5단계</div>
+        <div class="pipe">
+          <div class="st"><div class="no">1</div><div class="nm">의도 분류</div><div class="md">Claude 3 Haiku</div></div>
+          <div class="st"><div class="no">2</div><div class="nm">질문 재작성</div><div class="md">Claude 3 Haiku</div></div>
+          <div class="st"><div class="no">3</div><div class="nm">벡터 검색</div><div class="md">Cohere Embed v4</div></div>
+          <div class="st"><div class="no">4</div><div class="nm">리랭킹</div><div class="md">Cohere Rerank 3.5</div></div>
+          <div class="st"><div class="no">5</div><div class="nm">답변 생성</div><div class="md">Claude 3.5 Sonnet</div></div>
+        </div></div>
+      <div class="block"><div class="psub">데이터 모델</div>
+        <div class="erd">
+          <div class="ent"><div class="eh">document</div><div class="ef"><span class="pk">id</span> · title · status</div></div>
+          <div class="erel">1 : N</div>
+          <div class="ent"><div class="eh">document_chunk</div><div class="ef"><span class="pk">id</span> · document_id</div><div class="ef">embedding vector(1024)</div></div>
+          <div class="ent"><div class="eh">answer_cache</div><div class="ef"><span class="pk">id</span> · question</div><div class="ef">embedding · answer · sources</div></div>
+          <div class="ent"><div class="eh">faq_candidate → faq</div><div class="ef"><span class="pk">id</span> · question · answer</div><div class="ef">status (검수·승인)</div></div>
+        </div></div>
+      <div class="block"><div class="psub">트러블슈팅</div>
+        <div class="ts"><div class="tt">AI 임베딩 호출(최대 120초)이 DB 트랜잭션을 점유</div>
+          <div class="step"><div class="sl">문제</div><div class="sv">긴 임베딩 호출이 트랜잭션 안에 있으면 그만큼 커넥션·락을 점유 → 풀 고갈 위험</div></div>
+          <div class="step"><div class="sl">해결</div><div class="sv">저장을 별도 트랜잭션으로 떼고 <b>트랜잭션 종료 후 AI 호출</b>, 상태는 또 다른 짧은 트랜잭션으로 커밋</div></div>
+          <div class="step"><div class="sl">결과</div><div class="sv">AI 호출 동안 DB 락 미점유 · 업로드·재처리·삭제를 동일 패턴으로 통일</div></div></div>
+        <div class="ts"><div class="tt">베타에서 발견 — 사용자별 캐시가 잘못 공유되는 결함</div>
+          <div class="step"><div class="sl">문제</div><div class="sv">캐시키가 질문 텍스트만이라, 학번·학적이 다른 사용자에게 캐시된 답이 잘못 반환</div></div>
+          <div class="step"><div class="sl">해결</div><div class="sv">사용자 맥락을 <b>캐시키에 일급 편입</b>, 질의 유사도+사용자 맥락이 모두 맞을 때만 캐시 히트</div></div></div></div>
+      <div class="result"><div class="rt">결과</div><p>병합 PR 13건 · Flyway 마이그레이션 6건 · 교내 학생 대상 <b>오픈베타 운영</b> · Lighthouse 모바일 Performance 100.</p></div>
+      <p class="retro"><b>회고</b> · AI를 붙이는 일은 모델 호출보다 그 주변의 트랜잭션·실패·검수 설계에 가깝다는 걸 체감했습니다.</p>
     </div>
-    <p class="dcap reveal">AWS Lightsail에 백엔드·AI 서버를, RDS(PostgreSQL 16 + pgvector, HNSW)에 문서·벡터를 두고, 답변 생성은 AWS Bedrock의 Claude·Cohere를 씁니다. 백엔드는 문서 처리·트랜잭션·실패 복구·FAQ·통계를 담당합니다.</p>
-
-    <div class="psub reveal">RAG 파이프라인 · 5단계</div>
-    <div class="pipe reveal">
-      <div class="st"><div class="no">1</div><div class="nm">의도 분류</div><div class="md">Claude 3 Haiku</div><div class="ds">학사·일상·기타 분류</div></div>
-      <div class="st"><div class="no">2</div><div class="nm">질문 재작성</div><div class="md">Claude 3 Haiku</div><div class="ds">대화 맥락·사용자 반영</div></div>
-      <div class="st"><div class="no">3</div><div class="nm">벡터 검색</div><div class="md">Cohere Embed v4</div><div class="ds">pgvector HNSW 상위 30</div></div>
-      <div class="st"><div class="no">4</div><div class="nm">리랭킹</div><div class="md">Cohere Rerank 3.5</div><div class="ds">30 → 핵심 5개</div></div>
-      <div class="st"><div class="no">5</div><div class="nm">답변 생성</div><div class="md">Claude 3.5 Sonnet</div><div class="ds">근거 5 + 출처 + SSE</div></div>
+    <div class="gallery-h">화면 모음</div>
+    <div class="gallery">
+      <figure><img src="assets/kdd-dashboard.jpg" alt="통계"><figcaption>관리자 통계 · 카테고리별 질문 분포</figcaption></figure>
+      <figure><img src="assets/kdd-docs.jpg" alt="자료탐색"><figcaption>자료 탐색 · 카테고리 트리</figcaption></figure>
+      <figure><img src="assets/kdd-faq.jpg" alt="FAQ"><figcaption>FAQ · AI 자동 인입 + 관리자 검수</figcaption></figure>
+      <figure><img src="assets/kdd-users.jpg" alt="사용자 관리"><figcaption>사용자 관리 · 일일 한도</figcaption></figure>
+      <figure><img src="assets/kdd-browser.jpg" alt="문서 관리"><figcaption>문서 관리 · 업로드·청크 분할</figcaption></figure>
     </div>
-
-    <div class="psub reveal">핵심 기능</div>
-    <div class="feat reveal">
-      <div class="ft">
-        <h4>출처와 함께 답하는 채팅</h4>
-        <p>자연어 질문에 자연어로 답하되, <b>답변마다 근거 문서·페이지를 출처로 노출</b>합니다. 출처를 누르면 원문 PDF로 바로 이동하고, SSE로 답변이 실시간 스트리밍됩니다.</p>
-        <ul class="mini">
-          <li>사용자 메시지 즉시 영속화 · AI 서버 호출은 WebClient + SSE 중계</li>
-          <li>응답 완료 시 답변과 출처를 함께 저장</li>
-        </ul>
-      </div>
-      <figure class="cap"><div class="shot"><img src="assets/kdd-chat-main.png" alt="KDD 채팅"></div>
-        <figcaption>채팅 — 질문에 근거 문서·출처와 함께 답변(신뢰도 표시)</figcaption>
-      </figure>
-    </div>
-
-    <div class="psub reveal">데이터 모델</div>
-    <div class="erd reveal">
-      <div class="ent"><div class="eh">document</div><div class="ef"><span class="pk">id</span> · title · status</div></div>
-      <div class="erel">1 : N →</div>
-      <div class="ent"><div class="eh">document_chunk</div><div class="ef"><span class="pk">id</span> · document_id</div><div class="ef">embedding vector(1024)</div></div>
-      <div class="ent"><div class="eh">answer_cache</div><div class="ef"><span class="pk">id</span> · question</div><div class="ef">embedding · answer · sources</div></div>
-      <div class="ent"><div class="eh">faq_candidate → faq</div><div class="ef"><span class="pk">id</span> · question · answer</div><div class="ef">status (검수·승인)</div></div>
-    </div>
-    <p class="dcap reveal">document 1–N document_chunk(임베딩 단위, 1024차원) / answer_cache는 질문+임베딩+답변+출처를 저장해 유사 질문 재요청 시 LLM 비용 없이 응답 / faq_candidate를 관리자가 승인하면 faq로 승격.</p>
-
-    <div class="feat rev reveal">
-      <div class="ft">
-        <h4>관리자 통계 대시보드</h4>
-        <p>전체 질문 수·문서 수·카테고리별 분포를 한눈에. 7개 집계 쿼리를 <b>REPEATABLE_READ</b>로 묶어 집계 도중 데이터가 변해도 합계가 어긋나지 않게 했고, 활성 사용자만 카운트합니다.</p>
-      </div>
-      <figure class="cap"><div class="shot"><div class="bar"><i></i><i></i><i></i></div><img src="assets/kdd-stats.png" alt="관리자 통계"></div>
-        <figcaption>관리자 통계 — 카테고리별 질문 분포</figcaption>
-      </figure>
-    </div>
-
-    <div class="feat reveal">
-      <div class="ft">
-        <h4>FAQ 자동 인입 + 관리자 검수</h4>
-        <p>스케줄러가 최근 질문을 모아 AI로 클러스터링해 FAQ 후보를 자동 적재합니다. <b>학번·이메일·전화를 정규식으로 마스킹</b>한 뒤, 관리자가 검수·승인한 후보만 사용자에게 노출됩니다.</p>
-        <ul class="mini">
-          <li>승인은 FOR UPDATE 비관락으로 다중 관리자 동시성 안전</li>
-          <li>AI 장애·데이터 부족은 다음 주기 재시도로 분리</li>
-        </ul>
-      </div>
-      <figure class="cap"><div class="shot"><div class="bar"><i></i><i></i><i></i></div><img src="assets/kdd-faq.png" alt="FAQ 시스템"></div>
-        <figcaption>FAQ 시스템 — AI 자동 인입 후보를 관리자가 검수</figcaption>
-      </figure>
-    </div>
-
-    <div class="psub reveal">트러블슈팅</div>
-    <div class="ts reveal">
-      <div class="tt">AI 임베딩 호출(최대 120초)이 DB 트랜잭션을 점유</div>
-      <div class="step"><div class="sl">문제</div><div class="sv">긴 임베딩 호출이 트랜잭션 안에 있으면 그 시간만큼 커넥션·락을 점유 → 동시 업로드 시 커넥션 풀 고갈 위험</div></div>
-      <div class="step"><div class="sl">해결</div><div class="sv">문서 저장을 별도 트랜잭션으로 떼고 <b>트랜잭션 종료 후 AI 호출</b>, 최종 상태는 또 다른 짧은 트랜잭션으로 커밋. saveAndFlush로 chunk PK를 미리 확보</div></div>
-      <div class="step"><div class="sl">결과</div><div class="sv">AI 외부 호출 동안 DB 락 미점유. 업로드·재처리·삭제를 동일 패턴으로 통일</div></div>
-    </div>
-    <div class="ts reveal">
-      <div class="tt">베타에서 발견 — 사용자별 캐시가 잘못 공유되는 결함</div>
-      <div class="step"><div class="sl">문제</div><div class="sv">캐시키가 질문 텍스트만으로 구성돼, 학번·학과·학적이 다른 사용자에게 캐시된 답이 잘못 반환 (개인화·데이터 격리에 치명적)</div></div>
-      <div class="step"><div class="sl">해결</div><div class="sv">사용자 식별 맥락을 <b>캐시키에 일급 편입</b>, 질의 유사도 + 사용자 맥락이 모두 일치할 때만 캐시 히트. BE↔AI 인터페이스 계약을 재정의해 회귀 없이 적용</div></div>
-      <div class="step"><div class="sl">결과</div><div class="sv">오픈베타 실사용에서 발견한 결함을 RAG 파이프라인 개편으로 해결</div></div>
-    </div>
-
-    <div class="psub reveal">관리자 도구</div>
-    <figure class="cap reveal"><div class="shot"><img src="assets/kdd-admin.jpeg" alt="관리자 도구"></div><figcaption>관리자 도구 — PDF 문서 업로드, 자동 청크 분할·벡터화, 카테고리 분류</figcaption></figure>
-
-    <div class="result reveal">
-      <div class="rt">결과</div>
-      <p>병합 PR 13건 · Flyway 마이그레이션 6건 · AI 연동 엔드포인트 3종 · 교내 학생 대상 <b>오픈베타 운영</b> · Lighthouse 모바일 Performance 100.</p>
-    </div>
-    <p class="retro reveal"><b>회고</b> · RAG에서는 답변 품질만큼 "문서를 어떻게 잘라 넣고, 외부 AI 호출의 실패·지연·동시성을 어디서 처리하느냐"가 중요했습니다. AI를 붙이는 일은 모델 호출보다 그 주변의 트랜잭션·실패·검수 설계에 가깝다는 걸 체감했습니다.</p>
   </article>
 
   <!-- ===== 03 오늘어디 ===== -->
   <article class="proj reveal" id="p-today">
-    <div class="pnum">PROJECT 03</div>
-    <div class="ptitle">오늘어디 — 반복 경로 출발 알림 PWA</div>
-    <div class="pone">반복 일정·목적지를 등록하면 <b>외부 경로 API로 권장 출발 시각을 계산해 웹 푸시로 알려주는</b> 서비스. 백엔드의 외부 API 연동과 DB 스키마를 맡았습니다.</div>
-
-    <figure class="cap pcover reveal">
-      <div class="shot"><div class="bar"><i></i><i></i><i></i></div><img src="assets/today-landing.jpg" alt="오늘어디 랜딩 페이지"></div>
-      <figcaption>직접 만든 소개 랜딩 — 손그림 컨셉의 "언제 갈까?" 페이지</figcaption>
-    </figure>
-
-    <div class="pmeta reveal">
-      <div class="m"><div class="ml">기간</div><div class="mv">2026.04 – 05</div></div>
-      <div class="m"><div class="ml">배포</div><div class="mv">AWS Amplify · GitHub Pages</div></div>
-      <div class="m"><div class="ml">역할</div><div class="mv">외부 API 연동 · DB 스키마 · 장애 복구</div></div>
+    <div class="proj-head">
+      <div class="proj-no">03</div>
+      <div class="proj-cat">캡스톤 · 외부 API · PWA</div>
+      <h3 class="proj-title">오늘어디 — 반복 경로 출발 알림</h3>
+      <p class="proj-one">반복 일정을 등록하면 <b>외부 경로 API로 권장 출발 시각을 계산해 웹 푸시</b>로 알려주는 서비스. 외부 API 연동과 DB 스키마를 맡았습니다.</p>
+      <div class="proj-meta"><span>2026.04–05</span><span>AWS Amplify 배포</span><span><b>외부 API · DB 스키마</b></span></div>
+      <div class="proj-tags">Spring Boot · MySQL · Web Push(VAPID) · React PWA · ODsay·TMAP·Kakao</div>
+      <div class="proj-links"><a href="https://github.com/kookmin-sw/2026-capstone-53" target="_blank" rel="noopener">GitHub</a><a class="ghost" href="https://kookmin-sw.github.io/2026-capstone-53/" target="_blank" rel="noopener">소개 사이트</a><a class="ghost" href="https://kookmin-sw.github.io/2026-capstone-53/devtype/index.html" target="_blank" rel="noopener">개발자 유형 테스트</a></div>
     </div>
-    <div class="ptags reveal"><span>Spring Boot 3.5</span><span>MySQL</span><span>JWT</span><span>Web Push (VAPID)</span><span>React 19 (PWA)</span><span>ODsay·TMAP·Kakao</span></div>
-    <div class="plink reveal"><a href="https://github.com/kookmin-sw/2026-capstone-53" target="_blank" rel="noopener">GitHub 저장소 ↗</a></div>
-
-    <div class="psub reveal">문제의식</div>
-    <p class="ptext reveal">매일 같은 길을 다녀도 날씨·교통·환승 지연 때문에 출발 시각은 매번 달라집니다. 일정을 등록해두면 권장 출발 시각을 계산해 적시에 알려주는 서비스를 만들었습니다. 가장 까다로운 지점은 대중교통·보행자·지오코딩 외부 API가 일시 장애·키 만료가 잦다는 것이었습니다.</p>
-
-    <div class="psub reveal">시스템 아키텍처</div>
-    <div class="arch reveal">
-      <div class="node"><div class="t">React PWA (Amplify)</div><div class="d">일정·지도·푸시 구독</div></div>
-      <div class="arr">→</div>
-      <div class="node me"><div class="t">Spring 백엔드 (담당)</div><div class="d">외부 API 클라이언트 · PushScheduler · 재시도</div></div>
-      <div class="arr">→</div>
-      <div class="node"><div class="t">MySQL</div><div class="d">일정·경로 캐시</div></div>
-      <div class="arr">→</div>
-      <div class="node"><div class="t">외부 API</div><div class="d">ODsay·TMAP·Kakao</div></div>
+    <figure class="cap feature"><div class="shot"><img src="assets/today-landing.jpg" alt="오늘어디 소개 사이트"></div><figcaption>직접 만든 소개 사이트 — 손그림 컨셉의 "언제 갈까?"</figcaption></figure>
+    <div class="proj-body">
+      <div class="block"><div class="psub">문제의식</div><p class="ptext">매일 같은 길도 교통·환승 지연 때문에 출발 시각은 매번 다릅니다. 일정을 등록해두면 권장 출발 시각을 계산해 알려주는 서비스를 만들었습니다. 가장 까다로운 건 <b>외부 경로·지오코딩 API의 잦은 장애·키 만료</b>였습니다.</p></div>
+      <div class="block"><div class="psub">시스템 아키텍처</div>
+        <div class="arch">
+          <div class="node"><div class="t">React PWA</div><div class="d">일정·지도·푸시 구독</div></div>
+          <div class="node me"><div class="t">Spring 백엔드 (담당)</div><div class="d">외부 API 클라이언트 · 재시도 · PushScheduler</div></div>
+          <div class="node"><div class="t">MySQL</div><div class="d">일정·경로 캐시</div></div>
+          <div class="node"><div class="t">외부 API</div><div class="d">ODsay·TMAP·Kakao</div></div>
+        </div>
+        <p class="dcap">외부 의존을 클라이언트로 격리해 ExternalApiException으로 추상화하고, 도메인 서비스가 적절한 HTTP 상태로 매핑합니다.</p></div>
+      <div class="block"><div class="psub">데이터 모델</div>
+        <div class="erd">
+          <div class="ent"><div class="eh">member</div><div class="ef"><span class="pk">id</span> ULID</div></div>
+          <div class="erel">1 : N</div>
+          <div class="ent"><div class="eh">schedule</div><div class="ef"><span class="pk">id</span> · member_id</div><div class="ef">route_summary_json · status</div></div>
+          <div class="ent"><div class="eh">reminder</div><div class="ef"><span class="pk">id</span> · schedule_id · send_at</div></div>
+          <div class="ent"><div class="eh">geocode_cache</div><div class="ef"><span class="pk">query_hash</span></div><div class="ef">SHA-256 · 30일 TTL</div></div>
+        </div></div>
+      <div class="block"><div class="psub">트러블슈팅</div>
+        <div class="ts"><div class="tt">외부 경로 API 실패 시 경로가 잠긴 채 회복 수단이 없어 알림 누락</div>
+          <div class="step"><div class="sl">문제</div><div class="sv">일시 장애(5xx)·키 만료(401/403)로 실패하면 경로가 PENDING_RETRY로 영구 정체</div></div>
+          <div class="step"><div class="sl">해결</div><div class="sv">실패를 transient/auth/mapping으로 분류 + 스케줄러가 <b>5분 쿨다운·최대 5회</b> 배치 재시도</div></div>
+          <div class="step"><div class="sl">결과</div><div class="sv">사용자 개입 없이 일시 장애가 <b>약 25분 내 자동 복구</b></div></div></div>
+        <div class="ts"><div class="tt">요일 6개 이상이면 일정 등록이 500으로 실패</div>
+          <div class="step"><div class="sl">원인</div><div class="sv">요일 CSV 컬럼 VARCHAR(20) — 6요일부터 길이 초과('요일 개수'가 진짜 트리거)</div></div>
+          <div class="step"><div class="sl">해결</div><div class="sv"><b>VARCHAR(31)</b> 무중단 확장 + DTO @Size 검증 (defense in depth)</div></div></div></div>
+      <div class="result"><div class="rt">결과</div><p>병합 PR 29건 · 단위 12건 + 통합 회귀 테스트 · 경로 장애 자동복구 메커니즘 · AWS Amplify 배포. 서비스 홍보용 <b>개발자 유형 테스트</b>(24문항·8유형)도 직접 기획·구현.</p></div>
+      <p class="retro"><b>회고</b> · 외부 의존이 많은 서비스의 신뢰성은 "실패를 어떻게 분류하고 어디까지 자동 복구하느냐"의 설계에서 갈렸습니다.</p>
     </div>
-    <p class="dcap reveal">외부 의존(ODsay/TMAP/Kakao)을 클라이언트로 격리해 ExternalApiException으로 추상화하고, 도메인 서비스가 적절한 HTTP 상태로 매핑합니다. PushScheduler가 발송 대상을 스캔해 VAPID 웹 푸시를 보냅니다.</p>
-
-    <div class="psub reveal">앱 화면</div>
-    <p class="ptext reveal" style="margin-bottom:8px">권장 출발 = 도착 − 소요로 산출하고, ±3분 윈도우로 EARLIER/ON_TIME/LATER를 안내합니다. ONCE/DAILY/WEEKLY/CUSTOM 반복 일정의 다음 시각을 KST로 계산해 적시에 웹 푸시를 보냅니다.</p>
-    <div class="gal phones reveal">
-      <figure class="cap"><div class="phone"><img src="assets/today-main.jpg" alt="메인"></div><figcaption>메인 · 권장 출발 시각</figcaption></figure>
-      <figure class="cap"><div class="phone"><img src="assets/today-map.jpg" alt="경로"></div><figcaption>경로 안내 · 실시간 지도</figcaption></figure>
-      <figure class="cap"><div class="phone"><img src="assets/today-calendar.jpg" alt="캘린더"></div><figcaption>캘린더 · 반복 일정</figcaption></figure>
-      <figure class="cap"><div class="phone"><img src="assets/today-setting.jpg" alt="설정"></div><figcaption>설정 · 알림</figcaption></figure>
+    <div class="gallery-h">화면 모음 · 앱 / 소개 사이트 / 개발자 유형 테스트</div>
+    <div class="gallery">
+      <figure><img src="assets/app-1_main.jpg" alt="메인"><figcaption>앱 · 권장 출발 시각</figcaption></figure>
+      <figure><img src="assets/app-2_map.jpg" alt="경로"><figcaption>앱 · 실시간 경로</figcaption></figure>
+      <figure><img src="assets/app-3_calendar.jpg" alt="캘린더"><figcaption>앱 · 반복 일정</figcaption></figure>
+      <figure><img src="assets/app-4_setting.jpg" alt="설정"><figcaption>앱 · 알림 설정</figcaption></figure>
+      <figure><img src="assets/today-schedule.jpg" alt="일정 등록"><figcaption>일정·경로 등록</figcaption></figure>
+      <figure><img src="assets/today-cards.jpg" alt="정보 카드"><figcaption>출발 안내 카드</figcaption></figure>
+      <figure><img src="assets/today-landing2.jpg" alt="소개 사이트"><figcaption>소개 사이트 · 일정 → 경로 추천</figcaption></figure>
+      <figure><img src="assets/today-mbti-start.jpg" alt="테스트 시작"><figcaption>개발자 유형 테스트 · 시작</figcaption></figure>
+      <figure><img src="assets/today-mbti-q.jpg" alt="테스트 문항"><figcaption>개발자 유형 테스트 · 문항</figcaption></figure>
+      <figure><img src="assets/today-mbti-result.jpg" alt="테스트 결과"><figcaption>개발자 유형 테스트 · 결과 분석</figcaption></figure>
     </div>
-
-    <div class="psub reveal">데이터 모델</div>
-    <div class="erd reveal">
-      <div class="ent"><div class="eh">member</div><div class="ef"><span class="pk">id</span> ULID</div><div class="ef">email · password</div></div>
-      <div class="erel">1 : N →</div>
-      <div class="ent"><div class="eh">schedule</div><div class="ef"><span class="pk">id</span> · member_id</div><div class="ef">route_summary_json</div><div class="ef">route_retry_count · status</div></div>
-      <div class="erel">→</div>
-      <div class="ent"><div class="eh">reminder</div><div class="ef"><span class="pk">id</span> · schedule_id</div><div class="ef">send_at</div></div>
-      <div class="ent"><div class="eh">geocode_cache</div><div class="ef"><span class="pk">query_hash</span></div><div class="ef">SHA-256 · 30일 TTL</div></div>
-    </div>
-
-    <div class="psub reveal">트러블슈팅</div>
-    <div class="ts reveal">
-      <div class="tt">외부 경로 API 실패 시 경로가 잠긴 채 회복 수단이 없어 알림 누락</div>
-      <div class="step"><div class="sl">문제</div><div class="sv">ODsay가 일시 장애(5xx)나 키 만료(401/403)로 실패하면 경로가 PENDING_RETRY로 잠겨, 사용자가 직접 수정하지 않으면 영구 정체</div></div>
-      <div class="step"><div class="sl">해결</div><div class="sv">실패를 transient/auth/mapping으로 분류하는 RouteRefreshOutcome enum + 스케줄러가 <b>5분 쿨다운·최대 5회</b> 배치 재시도, 401/403은 운영자에 노출</div></div>
-      <div class="step"><div class="sl">결과</div><div class="sv">사용자 개입 없이 일시 장애가 <b>약 25분 내 자동 복구</b>. 단위 12건 + 통합 회귀 가드</div></div>
-    </div>
-    <div class="ts reveal">
-      <div class="tt">데모 직전 500 — 요일 6개 이상이면 일정 등록 실패</div>
-      <div class="step"><div class="sl">원인</div><div class="sv">요일 CSV 컬럼이 VARCHAR(20). 평일 5요일(19자)은 통과하지만 6요일 이상은 길이를 넘겨 'Data too long' — '요일 개수'가 진짜 트리거</div></div>
-      <div class="step"><div class="sl">해결</div><div class="sv">마이그레이션으로 <b>VARCHAR(31)</b>(MySQL INSTANT 무중단) + DTO @Size(max=7) 검증을 함께 적용 (defense in depth)</div></div>
-      <div class="step"><div class="sl">결과</div><div class="sv">6요일 이상 정상 등록. 통합 테스트 3건으로 재발 차단</div></div>
-    </div>
-
-    <div class="psub reveal">추가로 만든 것 · 개발자 유형 테스트</div>
-    <div class="feat rev reveal">
-      <div class="ft">
-        <h4>24문항 개발자 유형 테스트</h4>
-        <p>서비스 홍보를 위해 직접 기획·구현한 미니 사이트. 24개 문항으로 8가지 개발자 유형을 진단하고 결과를 공유합니다. 첫 사용자용 <b>17단계 온보딩 튜토리얼</b>도 함께 만들었습니다.</p>
-      </div>
-      <figure class="cap"><div class="shot"><div class="bar"><i></i><i></i><i></i></div><img src="assets/today-devtype.jpg" alt="개발자 유형 테스트"></div>
-        <figcaption>개발자 유형 테스트 — 손그림 캐릭터 컨셉</figcaption>
-      </figure>
-    </div>
-
-    <div class="result reveal">
-      <div class="rt">결과</div>
-      <p>병합 PR 29건 · 단위 12건 + 통합 회귀 테스트 · 경로 장애 자동복구 메커니즘 · AWS Amplify·GitHub Pages 멀티 배포로 데모 완수.</p>
-    </div>
-    <p class="retro reveal"><b>회고</b> · 외부 의존이 많은 서비스의 신뢰성은 "실패를 어떻게 분류하고, 어디까지 자동 복구하며, 무엇을 사람에게 알릴지"의 설계에서 갈렸습니다. PR 본문을 명세·DB 매핑·회귀 가드까지 담는 설계 문서처럼 쓰는 연습이 됐습니다.</p>
   </article>
 
   <!-- ===== 04 Aivive ===== -->
   <article class="proj reveal" id="p-aivive">
-    <div class="pnum">PROJECT 04</div>
-    <div class="ptitle">Aivive — LLM 식단 건강관리 앱</div>
-    <div class="pone">수분·식사·운동을 기록하고 <b>Gemini로 식단 조언</b>을 받는 안드로이드 앱. 식단 관리·음식 DB·캘린더·프로필을 담당했습니다.</div>
-
-    <div class="pmeta reveal">
-      <div class="m"><div class="ml">기간</div><div class="mv">2025.10 – 11</div></div>
-      <div class="m"><div class="ml">배포</div><div class="mv">원스토어</div></div>
-      <div class="m"><div class="ml">역할</div><div class="mv">식단 AI 연동 · 음식 Room DB · 캘린더 · 프로필</div></div>
+    <div class="proj-head">
+      <div class="proj-no">04</div>
+      <div class="proj-cat">LLM · 안드로이드</div>
+      <h3 class="proj-title">Aivive — LLM 식단 건강관리 앱</h3>
+      <p class="proj-one">식사·수분·운동을 기록하고 <b>Gemini로 식단 조언</b>을 받는 앱. 식단·음식 DB·캘린더·프로필을 담당했습니다.</p>
+      <div class="proj-meta"><span>2025.10–11</span><span>원스토어 배포</span><span><b>식단·캘린더·프로필</b></span></div>
+      <div class="proj-tags">Android (Java) · Google Gemini · Room</div>
+      <div class="proj-links"><a href="https://github.com/tldbs0420/Team_9-MobileProgramming_2025" target="_blank" rel="noopener">GitHub</a></div>
     </div>
-    <div class="ptags reveal"><span>Android (Java)</span><span>Google Gemini</span><span>Room</span><span>ListenableFuture</span></div>
-    <div class="plink reveal"><a href="https://github.com/tldbs0420/Team_9-MobileProgramming_2025" target="_blank" rel="noopener">GitHub 저장소 ↗</a></div>
-
-    <div class="psub reveal">핵심 기능</div>
-    <div class="feat reveal">
-      <div class="ft">
-        <h4>Gemini 식단 조언 3기능</h4>
-        <p>LLM의 자연어 출력을 제품에서 바로 쓰기 위해 <b>프롬프트로 형식을 묶고 후처리로 검증</b>하는 이중 방어를 적용했습니다.</p>
-        <ul class="mini">
-          <li>목표·섭취 칼로리·음식 목록을 프롬프트화해 식단 조언 생성</li>
-          <li>조언을 다시 넣어 '후속 질문 4개'를 받아 버튼화한 클릭형 대화</li>
-          <li>음식명 입력 시 '숫자만 반환' 프롬프트 + 정규식 추출로 칼로리 자동 채움</li>
-        </ul>
-      </div>
-      <figure class="cap"><div class="phone"><img src="assets/aivive-home.jpg" alt="Aivive 메인"></div>
-        <figcaption>메인 · 식단 관리 진입</figcaption>
-      </figure>
+    <figure class="cap feature"><div class="shot" style="max-width:340px;margin:0 auto"><img src="assets/aivive-04.jpg" alt="Aivive 메인"></div><figcaption>메인 — 식단·운동·수분 관리 진입</figcaption></figure>
+    <div class="proj-body">
+      <div class="block"><div class="psub">데이터 모델 · Room</div>
+        <div class="erd">
+          <div class="ent"><div class="eh">food_goal</div><div class="ef"><span class="pk">date</span> (PK) · target_calorie</div></div>
+          <div class="erel">1 : N (CASCADE)</div>
+          <div class="ent"><div class="eh">food_log</div><div class="ef"><span class="pk">id</span> · date · name · calorie</div></div>
+          <div class="ent"><div class="eh">user_profile</div><div class="ef"><span class="pk">id</span> · name · height · weight</div></div>
+        </div>
+        <p class="dcap">인메모리 저장소를 Room DB 단일 소스로 전환해 식단 화면과 캘린더가 같은 날짜별 데이터를 공유하도록 정합성을 맞췄습니다.</p></div>
+      <div class="block"><div class="psub">트러블슈팅</div>
+        <div class="ts"><div class="tt">LLM이 자연어로 답해 칼로리·후속 질문을 코드에서 쓰기 어려움</div>
+          <div class="step"><div class="sl">해결</div><div class="sv">프롬프트로 출력 형식을 제약(숫자만)하고 정규식 후처리로 검증하는 <b>이중 방어</b></div></div>
+          <div class="step"><div class="sl">결과</div><div class="sv">예상 칼로리 자동 입력 + 후속 질문 4개를 버튼에 안정적으로 매핑</div></div></div></div>
+      <div class="result"><div class="rt">결과</div><p>병합 PR 4건 · Room 엔티티 3 · DAO 3 · 원스토어 배포. AI를 실제 화면에 붙여 본 첫 경험.</p></div>
     </div>
-
-    <div class="psub reveal">데이터 모델 · Room</div>
-    <div class="erd reveal">
-      <div class="ent"><div class="eh">food_goal</div><div class="ef"><span class="pk">date</span> (PK)</div><div class="ef">target_calorie</div></div>
-      <div class="erel">1 : N (date FK · CASCADE) →</div>
-      <div class="ent"><div class="eh">food_log</div><div class="ef"><span class="pk">id</span> auto</div><div class="ef">date FK · name · calorie</div></div>
-      <div class="ent"><div class="eh">user_profile</div><div class="ef"><span class="pk">id</span> = 1</div><div class="ef">name · height · weight</div></div>
-    </div>
-    <p class="dcap reveal">food_goal(날짜별 목표) 1–N food_log(섭취 기록). 식단 화면과 캘린더가 같은 DAO를 공유하도록 인메모리 저장소를 Room DB 단일 소스로 전환해 날짜별 정합성을 맞췄습니다.</p>
-
-    <div class="feat rev reveal">
-      <div class="ft">
-        <h4>캘린더 요약</h4>
-        <p>날짜를 선택하면 DAO로 목표·섭취 칼로리를 조회해 요약 카드와 진행률을 렌더합니다. 건강일기를 캘린더로 대체했습니다.</p>
-      </div>
-      <figure class="cap"><div class="phone"><img src="assets/aivive-calendar.jpeg" alt="Aivive 캘린더"></div>
-        <figcaption>종합 캘린더 · 날짜별 요약</figcaption>
-      </figure>
-    </div>
-
-    <div class="result reveal">
-      <div class="rt">결과</div>
-      <p>병합 PR 4건 · Room 엔티티 3 · DAO 3 · 원스토어 배포. AI를 실제 화면에 붙여 본 첫 경험.</p>
+    <div class="gallery-h">화면 모음</div>
+    <div class="gallery">
+      <figure><img src="assets/aivive-10.jpg" alt="식단"><figcaption>식단 · 음식·칼로리 기록</figcaption></figure>
+      <figure><img src="assets/aivive-14.jpg" alt="AI 조언"><figcaption>Gemini 식단 조언</figcaption></figure>
+      <figure><img src="assets/aivive-05.jpg" alt="식단 관리"><figcaption>식단 관리</figcaption></figure>
+      <figure><img src="assets/aivive-03.jpg" alt="홈"><figcaption>홈 · 기록 메뉴</figcaption></figure>
+      <figure><img src="assets/aivive-09.jpg" alt="홈 설정"><figcaption>홈 화면 설정</figcaption></figure>
+      <figure><img src="assets/aivive-01.jpg" alt="프로필"><figcaption>프로필 · 기본 정보</figcaption></figure>
     </div>
   </article>
 
   <!-- ===== 05 게임 ===== -->
   <article class="proj reveal" id="p-game">
-    <div class="pnum">PROJECT 05</div>
-    <div class="ptitle">좀비 생존 FPS — Unity 게임</div>
-    <div class="pone">Unity·C# 좀비 생존·탐색 게임. <b>상점·강화·업그레이드 등 게임 진행(메타) 시스템과 인게임 HUD</b>를 담당했습니다.</div>
-
-    <div class="pmeta reveal">
-      <div class="m"><div class="ml">기간</div><div class="mv">2025.10 – 11</div></div>
-      <div class="m"><div class="ml">역할</div><div class="mv">게임플레이 시스템 · HUD · 아이템·사운드</div></div>
-      <div class="m"><div class="ml">분량</div><div class="mv">C# 약 3,300줄 · 38 스크립트</div></div>
+    <div class="proj-head">
+      <div class="proj-no">05</div>
+      <div class="proj-cat">Unity · C#</div>
+      <h3 class="proj-title">SECTION NULL — 좀비 생존 FPS</h3>
+      <p class="proj-one">Unity·C# 좀비 생존·탐색 게임. <b>상점·강화·업그레이드 등 게임 진행 시스템과 인게임 HUD</b>를 담당했습니다.</p>
+      <div class="proj-meta"><span>2025.10–11</span><span>4인 팀</span><span><b>게임 시스템·HUD</b></span><span>C# 약 3,300줄</span></div>
+      <div class="proj-tags">Unity · C# · ScriptableObject · New Input System</div>
+      <div class="proj-links"><a href="https://github.com/tldbs0420/Team_6-GameSoftware_2025" target="_blank" rel="noopener">GitHub</a></div>
     </div>
-    <div class="ptags reveal"><span>Unity</span><span>C#</span><span>ScriptableObject</span><span>New Input System</span></div>
-    <div class="plink reveal"><a href="https://github.com/tldbs0420/Team_6-GameSoftware_2025" target="_blank" rel="noopener">GitHub 저장소 ↗</a></div>
-
-    <div class="psub reveal">핵심 기능</div>
-    <p class="ptext reveal">상점 → 인벤토리 → 강화로 이어지는 <b>경제 루프</b>를 데이터(ScriptableObject)-로직-UI 계층으로 분리해 설계했습니다. 등급별 스탯·재료를 데이터화한 무기 강화, 레벨·포인트로 6종 능력치를 올리는 업그레이드, 시선 기반 나침반·탄약·낮밤 시계로 구성한 인게임 HUD를 만들었습니다.</p>
-    <div class="gal g3 reveal">
-      <figure class="cap"><div class="shot"><div class="bar"><i></i><i></i><i></i></div><img src="assets/game-weapon.jpg" alt="무기"></div><figcaption>무기 시스템 · 강화 재료</figcaption></figure>
-      <figure class="cap"><div class="shot"><div class="bar"><i></i><i></i><i></i></div><img src="assets/game-shop.jpg" alt="상점"></div><figcaption>아이템 상점</figcaption></figure>
-      <figure class="cap"><div class="shot"><div class="bar"><i></i><i></i><i></i></div><img src="assets/game-skill.jpg" alt="능력치"></div><figcaption>능력치 강화</figcaption></figure>
-      <figure class="cap"><div class="shot"><div class="bar"><i></i><i></i><i></i></div><img src="assets/game-inventory.jpg" alt="인벤토리"></div><figcaption>인벤토리 · 재료</figcaption></figure>
-      <figure class="cap"><div class="shot"><div class="bar"><i></i><i></i><i></i></div><img src="assets/game-hud.jpg" alt="HUD"></div><figcaption>인게임 HUD · 거점 상호작용</figcaption></figure>
+    <figure class="cap feature"><div class="shot"><img src="assets/game-003.jpg" alt="SECTION NULL"></div><figcaption>SECTION NULL — 좀비 생존 FPS</figcaption></figure>
+    <div class="proj-body">
+      <div class="block"><div class="psub">핵심 기능</div><p class="ptext">상점 → 인벤토리 → 강화로 이어지는 <b>경제 루프</b>를 데이터(ScriptableObject)-로직-UI 계층으로 분리해 설계했습니다. 등급별 스탯·재료를 데이터화한 무기 강화, 6종 능력치 업그레이드, 시선 기반 나침반·탄약·낮밤 시계로 구성한 인게임 HUD를 만들었습니다.</p></div>
+      <div class="block"><div class="psub">트러블슈팅</div>
+        <div class="ts"><div class="tt">어두운 탐색 구간에서 아이템을 찾기 어렵고 줍기 대상이 모호함</div>
+          <div class="step"><div class="sl">해결</div><div class="sv">손전등 + 조준 레이캐스트로 바라보는 아이템만 아웃라인·줍기 표시(MaterialPropertyBlock)</div></div>
+          <div class="step"><div class="sl">결과</div><div class="sv">탐색 가시성·획득 UX 개선</div></div></div></div>
+      <p class="retro"><b>회고</b> · 상점·인벤토리·강화가 어긋나지 않게 맞물리려면 데이터와 로직을 떼어 두는 편이 유지보수에 유리했습니다.</p>
     </div>
-    <p class="retro reveal"><b>회고</b> · 상점·인벤토리·강화가 어긋나지 않게 맞물리려면 데이터와 로직을 떼어 두는 편이 유지보수에 유리했습니다. 백엔드·AI와는 거리가 있지만 객체지향 설계와 시스템 통합을 보여주는 사례로 넣었습니다.</p>
+    <div class="gallery-h">화면 모음</div>
+    <div class="gallery">
+      <figure><img src="assets/game-007.jpg" alt="무기 시스템"><figcaption>무기 시스템 · 등급·강화</figcaption></figure>
+      <figure><img src="assets/game-008.jpg" alt="캐릭터"><figcaption>생존자 캐릭터</figcaption></figure>
+      <figure><img src="assets/game-005.jpg" alt="HUD"><figcaption>인게임 HUD</figcaption></figure>
+      <figure><img src="assets/game-010.jpg" alt="환경"><figcaption>탐색 환경 · 도로</figcaption></figure>
+      <figure><img src="assets/game-011.jpg" alt="환경"><figcaption>탐색 환경 · 캐릭터</figcaption></figure>
+      <figure><img src="assets/game-012.jpg" alt="환경"><figcaption>탐색 환경</figcaption></figure>
+      <figure><img src="assets/game-016.jpg" alt="야간"><figcaption>야간 탐색 · 손전등</figcaption></figure>
+      <figure><img src="assets/game-017.jpg" alt="거점"><figcaption>거점 · 광장</figcaption></figure>
+      <figure><img src="assets/game-015.jpg" alt="차량"><figcaption>차량·구조물</figcaption></figure>
+      <figure><img src="assets/game-019.jpg" alt="터널"><figcaption>지하 통로</figcaption></figure>
+      <figure><img src="assets/game-020.jpg" alt="구조물"><figcaption>구조물 탐색</figcaption></figure>
+    </div>
   </article>
 
 </div></section>
